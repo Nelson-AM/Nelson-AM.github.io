@@ -1,0 +1,3 @@
+A
+HOST			IP			TTL
+nelson.science		67.212.237.138		5 minutes
