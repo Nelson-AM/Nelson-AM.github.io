@@ -33,7 +33,7 @@ ul a{
 	background: #222222;
 	color: white;
 }
-#header.h1{
+#header h1{
 	position: absolute;
 	top: 0;
 	left: 0;
