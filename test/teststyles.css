@@ -21,16 +21,14 @@ h1{
 	left: 0;
 	text-transform: uppercase;
 }
-ul{
-	li{
-		float: left;
-		a{
-			display: block;
-			color: white;
-			text-decoration: none;
-			padding: 0 10px;
-		}
-	}
+ul li{
+	float: left;
+}
+ul a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 0 10px;
 }
 
 #header{
