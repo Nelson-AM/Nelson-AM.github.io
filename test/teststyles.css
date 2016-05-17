@@ -15,6 +15,7 @@ html{
 	}
 }
 ul li{
+	display: inline;
 	float: left;
 }
 ul a{
