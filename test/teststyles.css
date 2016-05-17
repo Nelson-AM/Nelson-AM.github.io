@@ -14,16 +14,6 @@ html{
 		margin-bottom: 10px;
 	}
 }
-ul li{
-	display: inline;
-	float: left;
-}
-ul a{
-	display: block;
-	color: white;
-	text-decoration: none;
-	padding: 0 10px;
-}
 
 #header{
 	z-index: 2;
@@ -43,4 +33,14 @@ ul a{
 #nav{
 	position: absolute;
 	right: 0;
+}
+#nav li{
+	display: inline;
+	float: left;
+}
+#nav a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 0 10px;
 }
