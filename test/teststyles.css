@@ -14,6 +14,14 @@ html{
 		margin-bottom: 10px;
 	}
 }
+
+h1{
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-transform: uppercase;
+}
+
 #header{
 	z-index: 2;
 	position: fixed;
@@ -22,13 +30,6 @@ html{
 	line-height: 60px;
 	background: #222222;
 	color: white;
-	
-	h1{
-		position: absolute;
-		top: 0;
-		left: 0;
-		text-transform: uppercase;
-	}
 }
 #nav{
 	position: absolute;
