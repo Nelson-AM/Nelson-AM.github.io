@@ -10,9 +10,9 @@ html{
 .content{
 	position: relative;
 	padding-top: 80px;
-	p{
-		margin-bottom: 10px;
-	}
+}
+.content p{
+	margin-bottom: 10px;
 }
 
 #header{
