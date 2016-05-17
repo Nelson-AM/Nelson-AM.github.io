@@ -21,6 +21,17 @@ h1{
 	left: 0;
 	text-transform: uppercase;
 }
+ul{
+	li{
+		float: left;
+		a{
+			display: block;
+			color: white;
+			text-decoration: none;
+			padding: 0 10px;
+		}
+	}
+}
 
 #header{
 	z-index: 2;
@@ -34,15 +45,4 @@ h1{
 #nav{
 	position: absolute;
 	right: 0;
-	ul{
-		li{
-			float: left;
-			a{
-				display: block;
-				color: white;
-				text-decoration: none;
-				padding: 0 10px;
-			}
-		}
-	}
 }
