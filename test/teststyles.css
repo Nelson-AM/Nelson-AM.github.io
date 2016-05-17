@@ -3,7 +3,7 @@ html{
 }
 .container{
 	position: relative;
-	margin: 0 auto;
+	margin: 0 0 0 0;
 	width: 100%;
 	font-family: helvetica, sans-serif;
 }
