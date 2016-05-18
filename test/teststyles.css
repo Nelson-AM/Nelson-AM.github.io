@@ -1,4 +1,6 @@
-
+html{
+	background: #39a;
+}
 body{
 	margin: 0 0 0 0;
 }
@@ -24,7 +26,7 @@ h1{
 #nav ul{
 	margin: 0 0 0 0;
 }
-li{
+#nav li{
 	display: inline;
 	float: left;
 }
