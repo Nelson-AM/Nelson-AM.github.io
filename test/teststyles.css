@@ -21,6 +21,9 @@ h1{
 	position: absolute;
 	right: 0;
 }
+#nav ul{
+	margin: 0 0 0 0;
+}
 li{
 	display: inline;
 	float: left;
