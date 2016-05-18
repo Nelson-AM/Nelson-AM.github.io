@@ -21,7 +21,7 @@ h1{
 	position: absolute;
 	right: 0;
 }
-#nav li{
+li{
 	display: inline;
 	float: left;
 }
