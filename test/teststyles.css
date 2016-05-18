@@ -1,3 +1,6 @@
+html{
+	height: 150%;
+}
 body{
 	margin: 0 0 0 0;
 }
@@ -9,7 +12,6 @@ body{
 	color: white;
 	font-family: helvetica, sans-serif;
 }
-
 h1{
 	position: absolute;
 	left: 10px;
