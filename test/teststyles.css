@@ -20,7 +20,7 @@ body{
 	color: white;
 	font-family: helvetica, sans-serif;
 }
-#header h1{
+h1{
 	position: absolute;
 	top: 0;
 	left: 10px;
