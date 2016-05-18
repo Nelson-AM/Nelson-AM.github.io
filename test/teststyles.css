@@ -21,7 +21,7 @@ body{
 	font-family: helvetica, sans-serif;
 }
 #header h1{
-	position: relative;
+	position: absolute;
 	top: 10px;
 	left: 10px;
 	line-height: 40px;
