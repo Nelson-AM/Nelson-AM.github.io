@@ -10,7 +10,7 @@ body{
 	color: white;
 	font-family: helvetica, sans-serif;
 }
-h1{
+#header h1{
 	height: 60px;
 	position: absolute;
 	vertical-align: middle;
