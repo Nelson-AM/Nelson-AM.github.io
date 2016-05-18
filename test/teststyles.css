@@ -17,3 +17,7 @@ h1{
 	position: absolute;
 	left: 10px;
 }
+#nav{
+	position: absolute;
+	right: 0;
+}
