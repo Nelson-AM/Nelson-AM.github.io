@@ -1,6 +1,4 @@
-html{
-	height: 150%;
-}
+
 body{
 	margin: 0 0 0 0;
 }
@@ -13,6 +11,8 @@ body{
 	font-family: helvetica, sans-serif;
 }
 h1{
+	height: 60px;
 	position: absolute;
+	vertical-align: middle;
 	left: 10px;
 }
