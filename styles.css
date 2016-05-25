@@ -42,7 +42,7 @@ li.nav{
 	float: left;
 	line-height: 60px;
 }
-a{
+#nav a{
 	display: block;
 	color: white;
 	text-decoration: none;
@@ -93,6 +93,7 @@ img { border: 0; max-width: 100%; }
 /** Links **/
 a { color: #5582d6; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
 
 /** @group core layout **/
 #w {
