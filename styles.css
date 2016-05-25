@@ -30,6 +30,7 @@ body{
 #nav{
 	position: absolute;
 	right: 0;
+	height: 60px;
 }
 #nav ul{
 	margin: 0 0 0 0;
@@ -71,7 +72,7 @@ a:hover { text-decoration: underline; }
 
 /** @group core layout **/
 #w {
-	position: relative;
+	position: absolute;
 	margin: 0px 50px;
 	padding: 20px 40px; 
 	padding-top: 35px; 
