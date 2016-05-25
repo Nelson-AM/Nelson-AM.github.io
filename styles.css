@@ -161,7 +161,7 @@ html[xmlns] .clearfix { display: block; }
   margin-right: -0.15em;
 }
 
-html { background: #39a; }
+/** html { background: #39a; } **/
 .container {
   position: relative;
   margin: 0 auto;
