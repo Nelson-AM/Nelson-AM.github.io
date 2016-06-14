@@ -180,7 +180,10 @@ header { width: 100%; }
 	line-height: 0; 
 	height: 0; 
 }
-.clearfix{display: inline-block;}
+.clearfix{
+	padding-top: 60px;
+	display: inline-block;
+}
  
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
