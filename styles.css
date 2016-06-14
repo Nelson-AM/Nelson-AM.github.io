@@ -126,7 +126,7 @@ a:hover{
 	width: 100%;
 }
 #w{
-	/**position: absolute;**/
+	position: absolute;
 	margin: 60px auto;
 	padding: 20px 40px; 
 	padding-top: 35px; 
