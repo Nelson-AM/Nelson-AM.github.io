@@ -122,9 +122,12 @@ a:hover{
 
 
 /** @group core layout **/
-#w {
-	position: absolute;
-	margin: 60px 50px;
+#outer{
+	width: 100%;
+}
+#w{
+	/**position: absolute;**/
+	margin: 60px auto;
 	padding: 20px 40px; 
 	padding-top: 35px; 
 	background: #fff; 
