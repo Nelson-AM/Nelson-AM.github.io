@@ -126,11 +126,10 @@ a:hover{
 	width: 100%;
 }
 #w{
-	position: absolute;
-	margin: 60px auto;
-	padding: 20px 40px; 
-	padding-top: 35px; 
-	background: #fff; 
+	/** position: absolute; **/
+	margin: 0px auto;
+	padding: 60px 40px;
+	background: #fff;
 	min-width: 260px; 
 	max-width: 900px; 
 	border-bottom-right-radius: 8px; 
