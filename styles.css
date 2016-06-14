@@ -1,7 +1,4 @@
 /** Main page layout **/
-/** * { margin: 0; padding: 0; }
-html { height: 101%; } **/
-
 body{
 	background: #f2f2f2;
 	margin: 0 0 0 0;
@@ -25,7 +22,6 @@ body{
 	position: absolute;
 	left: 10px;
 }
-
 #nav{
 	position: absolute;
 	right: 0;
@@ -49,11 +45,11 @@ a.nav{
 	height: 60px;
 }
 
-/** Title header things **/
+/** Title headers **/
 h1{
 	font-family: Helvetica, sans-serif;
 	color: #454545; 
-	font-size: 1.5em; 
+	font-size: 2.5em; 
 	margin-bottom: 6px;
 }
 h2{
@@ -67,7 +63,7 @@ h3{
 	font-family: Helvetica, sans-serif;
 	color: #777;
 	font-weight: normal;
-	font-size: 1.1em;
+	font-size: 1.25em;
 	margin-bottom: 10px;
 }
 h4{
@@ -96,11 +92,7 @@ small{
 	margin-bottom: 6px;
 }
 
-/** List behavior
-ul { display: block; list-style: none; }
-ul li { padding-left: 45px; list-style-type: none; vertical-align: top; background: url('images/bullet.png') 25px 5px no-repeat; margin-bottom: 5px; font-family: "Balthazar", "Droid Serif", serif; color: #666; font-size: 1.6em; line-height: 2.3em; }
-**/
-
+/** List behavior **/
 ul{
 	margin-left: 35px;
 	margin-top: 15px;
@@ -113,15 +105,20 @@ li {
     line-height: 1.1em;
 }
 
-/** Image **/
+/** Image behavior **/
 img{
 	border: 0; 
 	max-width: 100%;
 }
 
 /** Links **/
-a{ color: #5582d6; text-decoration: none; }
-a:hover{ text-decoration: underline; }
+a{
+	color: #5582d6;
+	text-decoration: none; 
+}
+a:hover{
+	text-decoration: underline;
+}
 
 
 /** @group core layout **/
@@ -162,8 +159,15 @@ header { width: 100%; }
 }
 
 /** @group skills **/
-#skills-left { display: block; float: left; margin-right: 30px; }
-#skills-right { display: block; float: left;}
+#skills-left{
+	display: block; 
+	float: left; 
+	margin-right: 30px;
+}
+#skills-right{
+	display: block;
+	float: left;
+}
 
 /** @group clearfix **/
 .clearfix:after{
@@ -174,7 +178,7 @@ header { width: 100%; }
 	line-height: 0; 
 	height: 0; 
 }
-.clearfix { display: inline-block; }
+.clearfix{display: inline-block;}
  
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
