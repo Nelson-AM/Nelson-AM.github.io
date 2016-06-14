@@ -1,3 +1,27 @@
+@media screen and (max-width: 680px) {
+	ul.nav li:not(:first-child) {display: none;}
+	ul.nav li.icon{
+		float: right;
+		display: inline-block;
+	}
+	
+	ul.nav.responsive{position: relative;}
+	ul.nav.responsive li.icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	ul.nav.responsive li{
+		float: none;
+		display: inline;
+	}
+	ul.nav.responsive li a{
+		display: block;
+		text-align: left;
+	}
+}
+
+/*
 @media screen and (max-width:680px) {
   ul.nav li:not(:first-child) {display: none;}
   ul.nav li.icon {
@@ -17,7 +41,9 @@
   p { padding: 0; }
 }
 
+
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+/*
 @media screen and (max-width:680px) {
   ul.nav.responsive {position: relative;}
   ul.nav.responsive li.icon {
@@ -34,8 +60,9 @@
     text-align: left;
   }
 }
+*/
 
-
+/*
 @media screen and (min-width: 40em) {
   .js .nav-collapse {
     position: relative;
@@ -72,8 +99,10 @@
 @media only screen and (max-width: 320px) {
 	#w { margin: 0 10px; }
 }
-
+*/
 /** iPhone only **/
+/*
 @media screen and (max-device-width: 480px) {
 	ul li { width: 150px; }
 }
+*/
