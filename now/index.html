@@ -37,6 +37,9 @@
 				<ul class="nav">
 					<li class="nav"><a class="nav" href="http://www.nelson.science">Home</a></li>
 					<li class="nav"><a class="nav" href="now">Now</a></li>
+					<li class="icon">
+					    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+					  </li>
 				</ul>
 			</nav>
 		</header>
@@ -60,5 +63,11 @@
 				</p>
 			</section>
 		</div>
+		
+		<script>
+		function myFunction() {
+		    document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+		}
+		</script>
 	</body>
 </html>

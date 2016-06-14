@@ -16,6 +16,7 @@
   #w { padding: 20px 15px; }
   p { padding: 0; }
 }
+
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
 @media screen and (max-width:680px) {
   ul.nav.responsive {position: relative;}
