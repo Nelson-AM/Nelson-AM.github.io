@@ -79,7 +79,7 @@ h4{
 }
 
 /** Paragraph text, small text **/
-p {
+p{
 	font-family: "Balthazar", "Droid Serif", serif; 
 	color: #565656; 
 	font-size: 1.1em; 
@@ -99,6 +99,7 @@ small{
 ul { display: block; list-style: none; }
 ul li { padding-left: 45px; list-style-type: none; vertical-align: top; background: url('images/bullet.png') 25px 5px no-repeat; margin-bottom: 5px; font-family: "Balthazar", "Droid Serif", serif; color: #666; font-size: 1.6em; line-height: 2.3em; }
 **/
+
 /** Image **/
 img{
 	border: 0; 
@@ -106,8 +107,8 @@ img{
 }
 
 /** Links **/
-a { color: #5582d6; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a{ color: #5582d6; text-decoration: none; }
+a:hover{ text-decoration: underline; }
 
 
 /** @group core layout **/
@@ -130,18 +131,21 @@ a:hover { text-decoration: underline; }
 header { width: 100%; }
 
 /** @group personal settings **/
-#info { float: left; margin-bottom: 12px; }
+#info {
+	float: left; 
+	margin-bottom: 12px;
+}
 #photo { float: right; }
 #photo img { 
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
--webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
--moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-background-color: #fff;
-border: 1px solid #ccc;
-padding: 5px; 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 5px; 
 }
 
 /** @group skills **/
@@ -149,27 +153,36 @@ padding: 5px;
 #skills-right { display: block; float: left;}
 
 /** @group clearfix **/
-.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix:after{
+	content: "."; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	line-height: 0; 
+	height: 0; 
+}
 .clearfix { display: inline-block; }
  
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
+
+/** LaTeX styling **/
 .tex sub, .latex sub, .latex sup {
   text-transform: uppercase;
 }
 
-.tex sub, .latex sub {
+.tex sub, .latex sub{
   vertical-align: -0.5ex;
   margin-left: -0.1667em;
   margin-right: -0.125em;
 }
 
-.tex, .latex, .tex sub, .latex sub {
+.tex, .latex, .tex sub, .latex sub{
   font-size: 1em;
 }
 
-.latex sup {
+.latex sup{
   font-size: 0.85em;
   vertical-align: 0.15em;
   margin-left: -0.36em;
@@ -177,14 +190,14 @@ html[xmlns] .clearfix { display: block; }
 }
 
 /** html { background: #39a; } **/
-.container {
+.container{
   position: relative;
   margin: 0 auto;
   width: 94%;
   max-width: 1100px;
   font-family: helvetica, sans-serif;
 }
-.content {
+.content{
   position: relative;
   padding-top: 80px;
   p { margin-bottom: 10px; }
