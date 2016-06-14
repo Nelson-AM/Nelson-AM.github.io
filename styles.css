@@ -80,7 +80,7 @@ h4{
 
 /** Paragraph text, small text **/
 p{
-	font-family: "Balthazar", "Droid Serif", serif; 
+	font-family: Helvetica, sans-serif; 
 	color: #565656; 
 	font-size: 1.1em; 
 	line-height: 1em; 
@@ -89,7 +89,7 @@ p{
 	margin-left: 35px;
 }
 small{
-	font-family: "Balthazar", "Droid Serif", serif;
+	font-family: Helvetica, sans-serif;
 	color: #656565;
 	font-size: 1em; 
 	display: block; 
@@ -107,7 +107,7 @@ ul{
 	margin-bottom: 15px;
 }
 li {
-    font-family: "Balthazar", "Droid-Serif", serif;
+    font-family: Helvetica, sans-serif;
     color: #565656;
     font-size: 1.1em;
     line-height: 1.1em;
