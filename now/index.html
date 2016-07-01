@@ -34,13 +34,14 @@
 	</head>
 	<body>
 		<header id="header">
-			<h5>now</h5>
-			<nav id="nav">
-				<ul class="nav">
-					<li class="nav"><a class="nav" href="http://www.nelson.science">Home</a></li>
-					<li class="nav"><a class="nav" href="#">Now</a></li>
-				</ul>
-			</nav>
+			<ul class="topnav">
+				<li><a class="active" href="http://www.nelson.science">Home</a></li>
+				<li><a href="#">Now</a></li>
+				<li class="icon">
+					<a href="javascript:void(0);" style="font-size:15px;"
+					onclick="myFunction()">☰</a>
+				</li>
+			</ul>
 		</header>
 		<div id="w" itemscope itemtype="http://schema.org/Person">
 			<section id="profile">
@@ -65,7 +66,7 @@
 		
 		<script>
 		function myFunction() {
-			document.getElementsByClassName("nav")[0].classList.toggle("responsive");
+			document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
 		}
 		</script>
 	</body>

@@ -10,8 +10,8 @@
 	maximum-scale = 1, user-scalable = no">
 	<link rel="stylesheet" type="text/css"
 	href="http://fonts.googleapis.com/css?family=Simonetta:400,900|Balthazar">
-	<link rel="stylesheet" type="text/css" href="http://nelson.science/styles.css">
-	<link rel="stylesheet" type="text/css" href="http://nelson.science/responsive.css">
+	<link rel="stylesheet" type="text/css" href="http://nelson.science/test/teststyles.css">
+	<link rel="stylesheet" type="text/css" href="http://nelson.science/test/responsive.css">
 	<!--[if lt IE9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
 		</script>
@@ -33,14 +33,14 @@
 
 	<body>
 		<header id="header">
-			<h5>nelson.science</h5>
-			<!-- <nav id="nav">
-				<ul class="nav">
-					<li class="nav"><a class="nav" href="http://www.nelson.science">Home</a></li>
-					<li class="nav"><a class="nav" href="now">Now</a></li>
-				</ul>
-			</nav>
-			-->
+			<ul class="topnav">
+				<li><a class="active" href="http://www.nelson.science">Home</a></li>
+				<li><a href="now">Now</a></li>
+				<li class="icon">
+					<a href="javascript:void(0);" style="font-size:15px;"
+					onclick="myFunction()">☰</a>
+				</li>
+			</ul>
 		</header>
 		<div id="w" itemscope itemtype="http://schema.org/Person">
 			<header class="clearfix">
@@ -93,5 +93,11 @@
 			</section>
 			-->
 		</div>
+		
+		<script>
+		function myFunction() {
+			document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+		}
+		</script>
 	</body>
 </html>
