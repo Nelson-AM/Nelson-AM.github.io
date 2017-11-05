@@ -4,4 +4,9 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+title: Home
 ---
+
+# {{ page.title }}
+
+<center>Bitcoin trader and software archaeologist.</center>
