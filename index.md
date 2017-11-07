@@ -9,4 +9,4 @@ title: Home
 
 # {{ page.title }}
 
-<center>Bitcoin trader and software archaeologist.</center>
+<center>Hi, I'm Nelson.</center>
