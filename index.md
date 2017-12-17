@@ -3,10 +3,8 @@
 # Edit theme's home layout instead if you wanna make some changes
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: home
+layout: page
 title: Home
 ---
 
-# {{ page.title }}
-
-<center>Hi, I'm Nelson.</center>
+This personal website is in permanent beta, it adapts and evolves with my personal growth.
