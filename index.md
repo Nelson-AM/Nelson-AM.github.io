@@ -7,4 +7,4 @@ layout: page
 title: Home
 ---
 
-This personal website is in permanent beta, it adapts and evolves with my personal growth.
+This personal website is in permanent beta, it adapts and evolves to reflect my personal growth.
