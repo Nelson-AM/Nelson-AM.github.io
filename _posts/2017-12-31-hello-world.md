@@ -15,7 +15,7 @@ For as long as I can remember I've had the desire to express myself and have a c
 
 I want this blog to be a place where I can write about ideas and share things that interest me. I also want this website to serve as a place where I can showcase hobby projects that I'm working on; think software projects and photography to name a few. Writing for my eyes only provides a different context and through that, a different purpose. In a personal notebook, I have less incentive to rewrite and edit what I wrote. Through this process, I hope to become a better writer. That being said, I do hope that any projects showcased on this website can be of use to others.
 
-## About this website
+## About This Website
 
 This website started out as a bare-bones homepage with hand-crafted HTML that was hosted using GitHub pages. Over the summer I began thinking more seriously about adding a blog to it and adding more pages to it. While looking into content management systems and blogging platforms I came across [Jekyll](https://jekyllrb.com/), an open source static website generator. Jekyll immediately appealed to me because it offers a system that provides everything I need in terms of functionality (so far) while being very flexible, it is light-weight and plain-text based (another plus in my book).
 
