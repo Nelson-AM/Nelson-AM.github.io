@@ -12,6 +12,7 @@ Book titles link to their respective Goodreads pages.
 
 * [Harry Potter and the Methods of Rationality](https://www.goodreads.com/book/show/10016013-harry-potter-and-the-methods-of-rationality) -- Eliezer Yudkowsky
   * This has been on my to-read list ever since it came out and I read the first ten chapters, but I wanted to wait until it was finished so I could take it all in at my own pace.
+* [The Pragmatic Programmer: From Journeyman to Master](https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer) -- Andrew Hunt & David Thomas
 
 # 2016-2018
 
