@@ -34,8 +34,7 @@ Book titles link to their respective Goodreads pages.
 * [Maus](https://www.goodreads.com/book/show/15195.The_Complete_Maus) -- Art Spiegelman 
   * An amazing graphic novel telling a personal story from World War II.
 <!-- 2014 -->
-* [Psyche / Fidessa]
-(https://www.goodreads.com/book/show/18470328-psyche-fidessa) -- Louis Couperus (<span style="font-variant: small-caps" title="Nederlands">nld</span>)
+* [Psyche / Fidessa](https://www.goodreads.com/book/show/18470328-psyche-fidessa) -- Louis Couperus (<span style="font-variant: small-caps" title="Nederlands">nld</span>)
 <!-- 2013 -->
 * [Lolita](https://www.goodreads.com/book/show/12942972-lolita) -- Vladimir Nabokov
 * [Frankenstein or, The Modern Prometheus](https://www.goodreads.com/book/show/386385.Frankenstein_or_The_Modern_Prometheus) -- Mary Shelley
