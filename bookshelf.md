@@ -10,16 +10,19 @@ Book titles link to their respective Goodreads pages.
 
 # Currently Reading
 
+* [The Obstacle is the Way](https://www.goodreads.com/book/show/32879915-the-obstacle-is-the-way) -- Ryan Holiday
+
+# 2016-2019
+
+<!--2019-->
+<!--2018-->
 * [Harry Potter and the Methods of Rationality](https://www.goodreads.com/book/show/10016013-harry-potter-and-the-methods-of-rationality) -- Eliezer Yudkowsky
   * This has been on my to-read list ever since it came out and I read the first ten chapters, but I wanted to wait until it was finished so I could take it all in at my own pace.
-
-# 2016-2018
-
-<!--2018-->
 * [The Pragmatic Programmer: From Journeyman to Master](https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer) -- Andrew Hunt & David Thomas
 * [Mrs. Dalloway](https://www.goodreads.com/book/show/46751.Mrs_Dalloway) -- Virginia Woolf
 * [Flowers for Algernon](https://www.goodreads.com/book/show/35710320-flowers-for-algernon) -- Daniel Keynes
-* [Dracula](https://www.goodreads.com/book/show/33532.Dracula) -- Bram Stoker <!-- 2017 -->
+* [Dracula](https://www.goodreads.com/book/show/33532.Dracula) -- Bram Stoker
+<!-- 2017 -->
 * [The Martian](https://www.goodreads.com/book/show/20829029-the-martian) -- Andy Weir
 <!-- 2016 -->
 * [Logicomix](https://www.goodreads.com/book/show/6493321-logicomix) -- Apostolos Doxiadis
