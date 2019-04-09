@@ -10,11 +10,12 @@ Book titles link to their respective Goodreads pages.
 
 # Currently Reading
 
-* [The Obstacle is the Way](https://www.goodreads.com/book/show/32879915-the-obstacle-is-the-way) -- Ryan Holiday
+* [American Gods](https://www.goodreads.com/book/show/30165203-american-gods) -- Neil Gaiman
 
 # 2016-2019
 
 <!--2019-->
+* [The Obstacle is the Way](https://www.goodreads.com/book/show/32879915-the-obstacle-is-the-way) -- Ryan Holiday
 <!--2018-->
 * [Harry Potter and the Methods of Rationality](https://www.goodreads.com/book/show/10016013-harry-potter-and-the-methods-of-rationality) -- Eliezer Yudkowsky
   * This has been on my to-read list ever since it came out and I read the first ten chapters, but I wanted to wait until it was finished so I could take it all in at my own pace.
