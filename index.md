@@ -7,7 +7,7 @@ layout: page
 title: Home
 ---
 
-This personal website is in permanent beta, it adapts and evolves to reflect my personal growth.
+Welcome. This personal website is in permanent beta, it adapts and evolves to reflect my personal growth.
 
 ![Sakura (2013)](assets/photos/sakura.jpg)
 <center><i>Sakura</i> (2013)</center>
