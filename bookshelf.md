@@ -8,11 +8,11 @@ This page features a selection of the books that I have read since I started kee
 
 Book titles link to their respective Goodreads pages.
 
-# Currently Reading
+## Currently Reading
 
 * [American Gods](https://www.goodreads.com/book/show/30165203-american-gods) -- Neil Gaiman
 
-# 2016-2019
+## 2016-2019
 
 <!--2019-->
 * [The Obstacle is the Way](https://www.goodreads.com/book/show/32879915-the-obstacle-is-the-way) -- Ryan Holiday
@@ -30,12 +30,12 @@ Book titles link to their respective Goodreads pages.
 * [On Writing: A Memoir of the Craft](https://www.goodreads.com/book/show/7143113-on-writing) -- Stephen King
   * Combination master class and memoir with the grip of a page-turner.
 
-# 2011-2015
+## 2011-2015
 
 <!-- 2015 -->
 * [1Q84](https://www.goodreads.com/book/show/13699726-1q84) -- Haruki Murakami
 * [Pride and Prejudice](https://www.goodreads.com/book/show/1886.Pride_and_Prejudice) -- Jane Austen
-* [Maus](https://www.goodreads.com/book/show/15195.The_Complete_Maus) -- Art Spiegelman 
+* [Maus](https://www.goodreads.com/book/show/15195.The_Complete_Maus) -- Art Spiegelman
   * An amazing graphic novel telling a personal story from World War II.
 <!-- 2014 -->
 * [Psyche / Fidessa](https://www.goodreads.com/book/show/18470328-psyche-fidessa) -- Louis Couperus (<span style="font-variant: small-caps" title="Nederlands">nld</span>)
