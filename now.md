@@ -14,7 +14,7 @@ I'm based in Amsterdam, sharing a flat with my partner and two cats. By day, I'm
 
 Beside my day-job, my priorities are:
 
-* physical health: running regularly and trying to figure out a good bodyweight routine;
+* physical health: running regularly and working out a good bodyweight routine;
 * organising my physical and digital spaces;
 * improving my house through small renovations;
 * organising PyData Amsterdam meetups and conference.
