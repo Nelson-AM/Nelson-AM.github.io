@@ -3,6 +3,7 @@ layout: post
 title: "Hello World!"
 date: 2017-12-31 17:15:00 +0100
 categories: blog
+tags: meta
 ---
 
 For a while now I have been meaning to start a personal blog. Now, it is finally time to say `Hello World`.
@@ -11,7 +12,7 @@ For a while now I have been meaning to start a personal blog. Now, it is finally
 
 ## Introduction and Purpose
 
-For as long as I can remember I've had the desire to express myself and have a creative outlet. I have dabbled in photography, digital art, writing and video. So far nothing really stuck, for one reason or another. I have written fiction stories (or at least attempted to) as well as non-fiction in various forms, such as journaling. Blogging is a logical next step, so here goes. While I am primarily writing for myself, publishing something on the internet challenges me to write differently compared to how I would write in a personal notebook or journal. 
+For as long as I can remember I've had the desire to express myself and have a creative outlet. I have dabbled in photography, digital art, writing and video. So far nothing really stuck, for one reason or another. I have written fiction stories (or at least attempted to) as well as non-fiction in various forms, such as journaling. Blogging is a logical next step, so here goes. While I am primarily writing for myself, publishing something on the internet challenges me to write differently compared to how I would write in a personal notebook or journal.
 
 I want this blog to be a place where I can write about ideas and share things that interest me. I also want this website to serve as a place where I can showcase hobby projects that I'm working on; think software projects and photography to name a few. Writing for my eyes only provides a different context and through that, a different purpose. In a personal notebook, I have less incentive to rewrite and edit what I wrote. Through this process, I hope to become a better writer. That being said, I do hope that any projects showcased on this website can be of use to others.
 
