@@ -12,7 +12,7 @@ So far, most of my python projects have consisted of single files, only importin
 
 Relative imports in Python weren't directly obvious to me and looking at the number of questions on StackExchange about this topic, I don't seem to be the only one. Most of these questions are rather old and the answers often involve changing sys.path, the PYTHONPATH, or using other seemingly clunky methods. I explored a number of different options that seemed to make sense to me as well as suggestions I found on StackExchange. In doing this, I ran into some import intricacies that I'd like to share.
 
-Suppose, I have the following directory structure and want to test `source.py`'s `sample_function` in `testsource.py`.
+Suppose, I have the following directory structure and want to test `food.py`'s `spam_is_food` in `test_food.py`.
 
 ```python
 pythonpackage/
