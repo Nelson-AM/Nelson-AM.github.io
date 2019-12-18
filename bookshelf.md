@@ -6,8 +6,6 @@ permalink: /bookshelf/
 
 This page features a selection of the books that I have read since I started keeping track of my reading in 2011. I grew up on a steady diet of science fiction and fantasy, which I still enjoy immensely. Over time I branched out into the realms of literary fiction as well as non-fiction. I try to read as widely as possible, which means I do have an ever increasing pile of to-read books near my bedside.
 
-Book titles link to their respective Goodreads pages.
-
 ## Currently Reading
 
 * Over Geweld -- Hannah Arendt
