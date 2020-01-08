@@ -8,11 +8,12 @@ This page features a selection of the books that I have read since I started kee
 
 ## Currently Reading
 
-* Over Geweld -- Hannah Arendt
+* Public Record -- Edward Snowden
 
 ## 2016-2019
 
 <!--2019-->
+* Over Geweld -- Hannah Arendt
 * Witte Onschuld: Paradoxen van kolonialisme en ras -- Gloria Wekker
 * On the Road -- Jack Kerouac
 * The Obstacle is the Way -- Ryan Holiday
