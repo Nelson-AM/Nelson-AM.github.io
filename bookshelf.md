@@ -8,6 +8,12 @@ This page features a selection of the books that I have read since I started kee
 
 ## Currently Reading
 
+* Anansi Boys -- Neil Gaiman
+
+## 2020
+
+<!-- 2020 -->
+* Enchiridion -- Epictetus
 * Public Record -- Edward Snowden
 
 ## 2016-2019
