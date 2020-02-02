@@ -8,13 +8,13 @@ This page serves as a reminder to myself what I want to focus on, as well as a p
 
 ## What I'm Doing Now
 
-*This page has been updated on: 14-04-2019.*
+*This page has been updated on: 02-02-2020.*
 
 I'm based in Amsterdam, sharing a flat with my partner and two cats. By day, I'm a software developer.
 
-Beside my day-job, my priorities are:
+Beside my day-job, my priorities are (in no particular order):
 
-* physical health: running regularly and working out a good bodyweight routine;
 * organising my physical and digital spaces;
 * improving my house through small renovations;
+* physical health;
 * organising PyData Amsterdam meetups and conference.
