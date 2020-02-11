@@ -4,10 +4,17 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: page
-title: Home
+menu: false
+title: Nelson Mooren
 ---
 
-Welcome. This personal website is in permanent beta, it adapts and evolves to reflect my personal growth.
+Welcome to my homepage. I'm Nelson.
 
-![Sakura (2013)](assets/photos/sakura.jpg)
-<center><i>Sakura</i> (2013)</center>
+I'm a software developer based in the Netherlands.
+
+<p class="aligncenter">
+  <img src="/assets/photos/sakura.jpg" width="600" alt="centered image" />
+</p>
+<p class="aligncenter">
+  <i>Sakura</i> (2013)
+</p>
