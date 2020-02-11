@@ -1,0 +1,14 @@
+- function: DevOps Engineer
+  company: Rabobank
+  location: Utrecht
+  tools: Java, Kafka, Apache Maven, Git, RedHat, Splunk, Ansible.
+  dates:
+    start: May 2018
+    end: present
+- function: Software Developer
+  company: InTraffic
+  location: Nieuwegein
+  tools: C++98, Apache Ant, Google Protocol buffers, TIBCO EMS
+  dates:
+    start: February 2017
+    end: January 2018
