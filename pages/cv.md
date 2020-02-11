@@ -9,17 +9,18 @@ A selection of my professional career.
 ## Work Experience
 
 {% for job in site.data.work %}
-<b>{{ job.function }}</b> at {{ job.company }}, {{ job.location }}
-
-<span class="post-meta">{{ job.dates.start }} -- {{ job.dates.end }}</span>
-
+<p>
+<b>{{ job.function }}</b> at {{ job.company }}, {{ job.location }}<br />
+<span class="post-meta">{{ job.dates.start }} -- {{ job.dates.end }}</span><br />
 Tools of the trade: {{ job.tools }}
+</p>
 {% endfor %}
 
 ## Education
 
 {% for study in site.data.education %}
-<b>{{ study.name }}</b> at {{ study.alma-mater }}
-
-<span class="post-meta">{{ study.dates.start }} -- {{ study.dates.end }}<span>
+<p>
+<b>{{ study.name }}</b> at {{ study.alma-mater }}<br />
+<span class="post-meta">{{ study.dates.start }} -- {{ study.dates.end }}</span>
+</p>
 {% endfor %}
