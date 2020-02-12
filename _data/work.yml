@@ -8,7 +8,7 @@
 - function: Software Developer
   company: InTraffic
   location: Nieuwegein
-  tools: C++98, Apache Ant, Google Protocol buffers, TIBCO EMS
+  tools: C++98, Apache Ant, Git, Google Protocol buffers, TIBCO EMS
   dates:
     start: February 2017
     end: January 2018

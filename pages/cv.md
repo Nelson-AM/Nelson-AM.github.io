@@ -21,6 +21,8 @@ Tools of the trade: {{ job.tools }}
 {% for study in site.data.education %}
 <p>
 <b>{{ study.name }}</b> at {{ study.alma-mater }}<br />
-<span class="post-meta">{{ study.dates.start }} -- {{ study.dates.end }}</span>
+<span class="post-meta">{{ study.dates.start }} -- {{ study.dates.end }}</span><br />
+{% if study.major %}Major: {{ study.major }}<br />{% endif %}
+{% if study.minor %}Minor: {{ study.minor }}<br />{% endif %}
 </p>
 {% endfor %}
