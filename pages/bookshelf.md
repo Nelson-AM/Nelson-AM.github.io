@@ -8,11 +8,12 @@ This page features a selection of the books that I have read since I started kee
 
 ## Currently Reading
 
-* Anansi Boys -- Neil Gaiman
+* Sophie's World: A Novel about the History of Philosophy -- Jostein Gaarder
 
 ## 2020
 
 <!-- 2020 -->
+* Anansi Boys -- Neil Gaiman
 * Enchiridion -- Epictetus
 * Public Record -- Edward Snowden
 
@@ -25,7 +26,7 @@ This page features a selection of the books that I have read since I started kee
 * The Obstacle is the Way -- Ryan Holiday
 <!--2018-->
 * Harry Potter and the Methods of Rationality -- Eliezer Yudkowsky
-  * This has been on my to-read list ever since it came out and I read the first ten chapters, but I wanted to wait until it was finished so I could take it all in at my own pace.
+  * This has been on my to-read list ever since it came out and I read the first ten chapters, but I wanted to wait until it was finished so I could take it all in at my own pace... and it was worth it.
 * The Pragmatic Programmer: From Journeyman to Master -- Andrew Hunt & David Thomas
 * Mrs. Dalloway -- Virginia Woolf
 * Flowers for Algernon -- Daniel Keynes
@@ -35,7 +36,7 @@ This page features a selection of the books that I have read since I started kee
 <!-- 2016 -->
 * Logicomix -- Apostolos Doxiadis
 * On Writing: A Memoir of the Craft -- Stephen King
-  * Combination master class and memoir with the grip of a page-turner.
+  * A combination of a master class and a memoir with the grip of a page-turner.
 
 ## 2011-2015
 
