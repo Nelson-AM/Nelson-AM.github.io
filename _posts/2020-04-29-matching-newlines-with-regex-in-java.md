@@ -10,7 +10,7 @@ Last week I set out to write some unit-tests for a Java application. Because the
 
 <!-- more -->
 
-Based on my experience with regex Python, I started with the following code snippet. In this example, I want to assert whether the `key: value` pair is present anywhere in the `exampleJsonString` (which contains line breaks).
+Based on my experience with regex in Python, I started with the following code snippet. In this example, I want to assert whether the `key: value` pair is present anywhere in the `exampleJsonString` (which contains line breaks).
 
 ```java
 // Assign exampleJsonString and exampleRegex for clarity
