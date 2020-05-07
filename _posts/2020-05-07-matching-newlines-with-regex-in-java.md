@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Regex in Java: Matching Line Breaks With a Dot"
-date: 2020-04-29 12:00:00
+date: 2020-05-07 12:00:00
 categories: blog
 tags: java regex
 ---
