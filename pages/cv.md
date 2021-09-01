@@ -14,7 +14,9 @@ A selection of my professional career.
 <p>
 <b>{{ job.function }}</b> {{ job.department }} at {{ job.company }}, {{ job.location }}<br />
 <span class="post-meta">{{ job.dates.start }} &ndash; {{ job.dates.end }}</span><br />
+{% if job.tools %}
 Tools of the trade: {{ job.tools }}
+{% endif %}
 </p>
 {% endfor %}
 {% endif %}
