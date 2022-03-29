@@ -8,6 +8,10 @@ This page serves as a reminder to myself what I want to focus on, as well as a p
 
 ## What I'm Doing Now
 
-*This page has been updated on: 25-05-2021.*
+*This page has been updated on: 29-03-2022.*
 
-During the pandemic, my main priority is my physical and mental health and that of my partner and cats.
+My three priorities right now are:
+
+- Home maintenance
+- Health & fitness
+- Preparing for my new job

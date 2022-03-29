@@ -10,7 +10,7 @@ title: Nelson Mooren
 
 Welcome to my homepage. I'm Nelson.
 
-I'm a software developer based in the Netherlands.
+I'm a _neuroscientist turned software developer_ and I'm based in the Netherlands.
 
 <p class="aligncenter">
   <img src="/assets/photos/sakura.jpg" width="600" alt="centered image" />
