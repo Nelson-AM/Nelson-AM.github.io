@@ -3,7 +3,7 @@ layout: post
 title: "Musings on the Erdős Number"
 date: 2019-12-17 12:00:00
 categories: blog
-tags: [academia]
+tags: academia
 ---
 
 I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.

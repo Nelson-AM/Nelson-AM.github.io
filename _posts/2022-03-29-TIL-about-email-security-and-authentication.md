@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TIL (a thing or two) about email security and authentication"
+title: "TIL (A Thing or Two) About Email Security and Authentication"
 date: 2022-03-29 12:00:00
 categories: blog
 tags: email security

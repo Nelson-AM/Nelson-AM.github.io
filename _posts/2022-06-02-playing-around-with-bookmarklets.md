@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Playing around with bookmarklets"
+title: "Playing Around With Bookmarklets"
 date: 2022-06-02 12:00:00
 categories: blog
 tags: bookmarks web javascript

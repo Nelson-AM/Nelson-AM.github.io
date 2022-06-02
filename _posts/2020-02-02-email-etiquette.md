@@ -3,7 +3,7 @@ layout: post
 title: "Email Etiquette"
 date: 2020-02-02 12:00:00
 categories: blog
-tags: [communication]
+tags: communication
 ---
 
 This post is about email. I didn't want to write about email, but it is happening anyway. Why? Because I want to be in control of the inputs into my life and email is one of the things that has continued to evade this control for a long time. Recently, I have made a few changes to the way I deal with email and I will continue experimenting as long as I feel out of control. This blog post is about those changes.
