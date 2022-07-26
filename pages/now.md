@@ -8,10 +8,11 @@ This page serves as a reminder to myself what I want to focus on, as well as a p
 
 ## What I'm Doing Now
 
-*This page has been updated on: 29-03-2022.*
+*This page has been updated on: 26-07-2022.*
 
-My three priorities right now are:
+My four priorities right now are (in no particular order):
 
 - Home maintenance
 - Health & fitness
-- Preparing for my new job
+- Organising meetups and conference with [PyData Amsterdam](https://amsterdam.pydata.org/)
+- Work & professional development
