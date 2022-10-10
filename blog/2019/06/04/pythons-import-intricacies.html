@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Python’s Import Intricacies</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Python’s Import Intricacies">
+<meta name="author" content="Nelson Mooren">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="So far, most of my python projects have consisted of single files, only importing external packages. Now that I’m more focused on test-driven development and developing my skills in a more structured way, I find I’m splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn’t know how to properly, Pythonically, import stuff from another file.">
+<meta property="og:description" content="So far, most of my python projects have consisted of single files, only importing external packages. Now that I’m more focused on test-driven development and developing my skills in a more structured way, I find I’m splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn’t know how to properly, Pythonically, import stuff from another file.">
+<link rel="canonical" href="http://nelson.science//blog/2019/06/04/pythons-import-intricacies.html">
+<meta property="og:url" content="http://nelson.science//blog/2019/06/04/pythons-import-intricacies.html">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-04T14:00:00+02:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Python’s Import Intricacies">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nelson Mooren"},"dateModified":"2019-06-04T14:00:00+02:00","datePublished":"2019-06-04T14:00:00+02:00","description":"So far, most of my python projects have consisted of single files, only importing external packages. Now that I’m more focused on test-driven development and developing my skills in a more structured way, I find I’m splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn’t know how to properly, Pythonically, import stuff from another file.","headline":"Python’s Import Intricacies","mainEntityOfPage":{"@type":"WebPage","@id":"http://nelson.science//blog/2019/06/04/pythons-import-intricacies.html"},"url":"http://nelson.science//blog/2019/06/04/pythons-import-intricacies.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+<link type="application/atom+xml" rel="alternate" href="http://nelson.science//feed.xml" title="">
+</head>
+<body>
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/"></a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            <a class="page-link" href="http://nelson.science/">Home</a>
+          
+
+          
+            
+            
+          
+            
+            
+              <a class="page-link" href="/blog/">Blog</a>
+            
+          
+            
+            
+              <a class="page-link" href="/cv/">CV</a>
+            
+          
+            
+            
+          
+            
+            
+              <a class="page-link" href="/now/">Now</a>
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Python's Import Intricacies</h1>
+    <p class="post-meta">
+      <time datetime="2019-06-04T14:00:00+02:00" itemprop="datePublished">
+        
+        4 June 2019
+      </time>
+      
+    </p>
+    <p class="post-meta">
+      
+        Tag:
+        python
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>So far, most of my python projects have consisted of single files, only importing external packages. Now that I’m more focused on test-driven development and developing my skills in a more structured way, I find I’m splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn’t know how to properly, Pythonically, import stuff from another file.</p>
+
+<!-- more -->
+
+<p>Relative imports in Python weren’t directly obvious to me and looking at the number of questions on StackExchange about this topic, I don’t seem to be the only one. Most of these questions are rather old and the answers often involve changing sys.path, the PYTHONPATH, or using other seemingly clunky methods. I explored a number of different options that seemed to make sense to me as well as suggestions I found on StackExchange. In doing this, I ran into some import intricacies that I’d like to share.</p>
+
+<p>Suppose, I have the following directory structure and want to test <code class="language-plaintext highlighter-rouge">food.py</code>’s <code class="language-plaintext highlighter-rouge">spam_is_food</code> in <code class="language-plaintext highlighter-rouge">test_food.py</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pythonpackage</span><span class="o">/</span>
+<span class="err">├──</span> <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+<span class="err">├──</span> <span class="n">food</span><span class="p">.</span><span class="n">py</span>
+<span class="err">└──</span> <span class="n">test_food</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">food.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">spam_is_food</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">test_food.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestFood</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_if_spam_is_food</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">spam_is_food</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Even though both modules are in the same package, <code class="language-plaintext highlighter-rouge">sample_function</code> needs to be imported in order for it to be found by the test case. Below is a list of the suggestions from StackExchange and other things I tried, with my commentary on it.</p>
+
+<ul>
+  <li>Using <code class="language-plaintext highlighter-rouge">import food</code> and calling <code class="language-plaintext highlighter-rouge">spam_is_food()</code> regularly does not work. This feels the most intuitive.</li>
+  <li>Using <code class="language-plaintext highlighter-rouge">import food as f</code> and then calling <code class="language-plaintext highlighter-rouge">f.spam_is_food</code> works (test succeeds), but PyCharm complains that there’s no module <code class="language-plaintext highlighter-rouge">food</code>. This feels a bit clunky, but it can prevent potential naming conflicts between packages.</li>
+  <li>Using <code class="language-plaintext highlighter-rouge">from food import spam_is_food</code> works, but PyCharm complains about unresolved references for both <code class="language-plaintext highlighter-rouge">food</code> and <code class="language-plaintext highlighter-rouge">spam_is_food</code>. Python seems to recognise that the module is there, but I’m not sure why PyCharm is complaining about it. Since both files are in the same package, I would expect this to work like a charm.</li>
+  <li>Using <code class="language-plaintext highlighter-rouge">from pythonpackage import food</code> and calling <code class="language-plaintext highlighter-rouge">spam_is_food</code> does not work, and that’s a shame given that the above option does work.</li>
+  <li>Using <code class="language-plaintext highlighter-rouge">from pythonpackage import food as f</code> and calling <code class="language-plaintext highlighter-rouge">f.spam_is_food</code> works without complaints from PyCharm. This is the most clunky of the five and doesn’t make me happy.</li>
+</ul>
+
+<p>Having tried all this, I decided to refine my search queries. Lo and behold, I finally found <a href="https://www.python.org/dev/peps/pep-0328/">pep-328</a> which contains <a href="https://www.python.org/dev/peps/pep-0328/#guido-s-decision">Guido’s Decision</a> on relative imports, and I think it provides a good middle-ground solution. So, the correct way to import <code class="language-plaintext highlighter-rouge">spam_is_food</code> from <code class="language-plaintext highlighter-rouge">food.py</code> in this structure is to: <code class="language-plaintext highlighter-rouge">from .food import spam_is_food</code>.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>Here, I’m only scratching the surface of Python’s import system. There’s a lot to learn about modules, packages and namespaces, so I’ve included some further reading that I will explore:</p>
+
+<ul>
+  <li><a href="https://docs.python.org/3/reference/import.html">The Import System (Python 3 Docs)</a></li>
+  <li><a href="https://docs.python.org/3/tutorial/modules.html">Modules (Python 3 Docs)</a></li>
+  <li><a href="https://realpython.com/absolute-vs-relative-python-imports/">Absolute vs. Relative Imports</a></li>
+  <li><a href="https://realpython.com/python-modules-packages/">Python Modules - An Introduction</a></li>
+</ul>
+
+  </div>
+
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/blog/2019/04/14/the-now-page-is-back.html">« The /now Page is Back</a>
+    
+    <span style="float:right;">
+      
+        <a class="next" href="/blog/2019/12/17/musings-on-the-erd%C5%91s-number.html">Musings on the Erdős Number »</a>
+      
+    </span>
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Nelson Mooren
+            
+            </li>
+            
+            <li><a href="mailto:hello@nelson.science">hello@nelson.science</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

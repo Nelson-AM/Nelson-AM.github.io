@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://nelson.science//feed.xml" rel="self" type="application/atom+xml" /><link href="http://nelson.science//" rel="alternate" type="text/html" /><updated>2022-10-10T22:45:37+02:00</updated><id>http://nelson.science//feed.xml</id><subtitle></subtitle><author><name>Nelson Mooren</name></author><entry><title type="html">Playing Around With Bookmarklets</title><link href="http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets.html" rel="alternate" type="text/html" title="Playing Around With Bookmarklets" /><published>2022-06-02T14:00:00+02:00</published><updated>2022-06-02T14:00:00+02:00</updated><id>http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets</id><content type="html" xml:base="http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets.html">&lt;p&gt;Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where  It has been a few years, but I’m back at a job where Jira is used, so I dug it up again. I also started playing around with bookmarklets to make life easier in other ways.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;the-jira-bookmarklet&quot;&gt;The Jira bookmarklet&lt;/h2&gt;
+
+&lt;p&gt;The Jira bookmarklet I found is courtesy of Matita. In their &lt;a href=&quot;https://matita.github.io/2015/10/23/go-to-jira-bookmarklet/&quot;&gt;blog post&lt;/a&gt;, Matita explains their reasons for liking and using bookmarklets. What resonates most with me is the autonomy that comes with bookmarklets. If you want to skip directly to the code, it’s on &lt;a href=&quot;https://github.com/matita/gotojira-bookmarklet&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;quick-confluence-search&quot;&gt;Quick Confluence search&lt;/h2&gt;
+
+&lt;p&gt;I like Confluence as a wiki, but their search functionality isn’t the best. I’m not talking about the quality and ordering of search results but the fact that the default behaviour is for search to run in a sidebar. This makes it feel unwieldy if you want to interact with multiple pages or need to go back and forth between results. How to make this easier to use?&lt;/p&gt;
+
+&lt;p&gt;Confluence has an advanced search that runs as a separate web page, meaning it has a URL I can use. With this, I only need this bookmarklet to do three things: (1) display a pop-up with a prompt, (2) build the URL by combining a base URL with the search text and (3) navigate to the page, which turns into this little bit of code.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;javascript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;search_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://confluence.&amp;lt;yourcompany&amp;gt;.com/dosearchsite.action?cql=siteSearch%20~%20%22&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;%22&amp;amp;includeArchivedSpaces=false&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;search_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;search_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Write your Confluence search query&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;base_url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;search_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To use this bookmarklet, you only need to change the base URL. Then create a new bookmark and paste this code into the URL field.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="bookmarks" /><category term="web" /><category term="javascript" /><summary type="html">Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where It has been a few years, but I’m back at a job where Jira is used, so I dug it up again. I also started playing around with bookmarklets to make life easier in other ways.</summary></entry><entry><title type="html">TIL (A Thing or Two) About Email Security and Authentication</title><link href="http://nelson.science//blog/2022/03/29/TIL-about-email-security-and-authentication.html" rel="alternate" type="text/html" title="TIL (A Thing or Two) About Email Security and Authentication" /><published>2022-03-29T14:00:00+02:00</published><updated>2022-03-29T14:00:00+02:00</updated><id>http://nelson.science//blog/2022/03/29/TIL-about-email-security-and-authentication</id><content type="html" xml:base="http://nelson.science//blog/2022/03/29/TIL-about-email-security-and-authentication.html">&lt;p&gt;The main TIL here is that Email is surprisingly easy to spoof. For example, you can use &lt;a href=&quot;https://emkei.cz/&quot;&gt;Emkei’s mailer&lt;/a&gt; to send emails as anyone to anyone. Using an online anonymous mailer like this is a good test of your email authentication and spam filter settings. The more surprising thing, to me at least, is that this is by design, kind of. Time to get into email standards!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;email-protocols&quot;&gt;Email Protocols&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc5321&quot;&gt;Simple Mail Transfer Protocol (SMTP)&lt;/a&gt; is an internet standard which is commonly used for sending and relaying email messages. SMTP client authentication can be done based on location or user credentials. However, to send email, all you need to do is to perform a valid SMTP transaction. An SMTP transaction consists of three sequences or commands. SMTP does not define what an acceptable sender mailbox specification is, this is up to the receiving party. To remedy this situation, there are three more standards/protocols to discuss.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc7208&quot;&gt;Sender Policy Framework&lt;/a&gt; (SPF) defines which servers can send email as coming from a specific domain. This can be done by adding a record to a server’s DNS information. With an SPF record in place, receiving mail servers can check whether the originating server is authorised to have sent that email.&lt;/p&gt;
+
+&lt;p&gt;With &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6376&quot;&gt;DomainKeys Identified Mail&lt;/a&gt; (DKIM) a cryptographic signature is added to emails by the sending mailserver. The public key for DKIM is published as a DNS record against which the signatures can be checked. DKIM associates emails with a domain name so forged sender addresses can be detected. Since DKIM signs parts of the email message, it also ensures that these fields have not been (substantially) changed since the email was sent.&lt;/p&gt;
+
+&lt;p&gt;Finally, &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6376&quot;&gt;Domain-based Message Authentication, Reporting &amp;amp; Conformance&lt;/a&gt; (DMARC) ties it all together. DMARC is an advisory policy, informing receivers what should be done if an SPF or DKIM check fails. There are three policies:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;None&lt;/strong&gt;: no special treatment is required. This should only be used for testing.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Quarantine&lt;/strong&gt;: treat with suspicion, for example flag messages as suspicious or deliver them to the spam folder.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Reject&lt;/strong&gt;: simply reject messages that fail a check (bounce).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Optionally, DMARC can produce aggregate and forensic reports which are sent to a specified email address.&lt;/p&gt;
+
+&lt;h2 id=&quot;checking-your-settings&quot;&gt;Checking your settings&lt;/h2&gt;
+
+&lt;p&gt;MXToolBox (among others) has tools to check all three policies: &lt;a href=&quot;https://mxtoolbox.com/spf.aspx&quot;&gt;SPF&lt;/a&gt;, &lt;a href=&quot;https://mxtoolbox.com/dkim.aspx&quot;&gt;DKIM&lt;/a&gt; and &lt;a href=&quot;https://mxtoolbox.com/dmarc.aspx&quot;&gt;DMARC&lt;/a&gt;.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="email" /><category term="security" /><summary type="html">The main TIL here is that Email is surprisingly easy to spoof. For example, you can use Emkei’s mailer to send emails as anyone to anyone. Using an online anonymous mailer like this is a good test of your email authentication and spam filter settings. The more surprising thing, to me at least, is that this is by design, kind of. Time to get into email standards!</summary></entry><entry><title type="html">Regex in Java: Matching Line Breaks With a Dot</title><link href="http://nelson.science//blog/2020/05/07/matching-newlines-with-regex-in-java.html" rel="alternate" type="text/html" title="Regex in Java: Matching Line Breaks With a Dot" /><published>2020-05-07T14:00:00+02:00</published><updated>2020-05-07T14:00:00+02:00</updated><id>http://nelson.science//blog/2020/05/07/matching-newlines-with-regex-in-java</id><content type="html" xml:base="http://nelson.science//blog/2020/05/07/matching-newlines-with-regex-in-java.html">&lt;p&gt;Last week I set out to write some unit-tests for a Java application. Because the assertions target variable fields in a JSON string, I decided to use regular expressions (regex) to match these fields. In doing this, I learned a few interesting things, which weren’t immediately obvious to me, about how regex are implemented in Java.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Based on my experience with regex in Python, I started with the following code snippet. In this example, I want to assert whether the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key: value&lt;/code&gt; pair is present anywhere in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exampleJsonString&lt;/code&gt; (which contains line breaks).&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Assign exampleJsonString and exampleRegex for clarity&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exampleJsonString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{\n key : value, \n(...)\n}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exampleRegex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;.*key : value.*&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exampleJsonString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exampleRegex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This did not work because in Java’s implementation of regex the dot-wildcard &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; does not include line terminators. This behaviour wasn’t immediately obvious to me and it took a while to figure out that this is implemented in some flavours of regex. To cite the &lt;a href=&quot;https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/regex/package-summary.html&quot;&gt;Java 14 docs on regex&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Predefined character classes&lt;/p&gt;
+
+  &lt;p&gt;.   Any character (may or may not match line terminators)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;With line-terminators being defined as:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A line terminator is a one- or two-character sequence that marks the end of a line of the input character sequence. The following are recognized as line terminators:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;A newline (line feed) character (‘\n’),&lt;/li&gt;
+    &lt;li&gt;A carriage-return character followed immediately by a newline character (“\r\n”),&lt;/li&gt;
+    &lt;li&gt;A standalone carriage-return character (‘\r’),&lt;/li&gt;
+    &lt;li&gt;A next-line character (‘\u0085’),&lt;/li&gt;
+    &lt;li&gt;A line-separator character (‘\u2028’), or&lt;/li&gt;
+    &lt;li&gt;A paragraph-separator character (‘\u2029’).&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There are two ways to get around this limitation. The first way I found uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pattern.compile()&lt;/code&gt; to compile the regex into an instance of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pattern&lt;/code&gt; class. This allows you to pass the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pattern.DOTALL&lt;/code&gt; flag, which makes the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; match any character including line breaks, as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exampleJsonString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{\n key : value, \n(...)\n}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Pattern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exampleRegex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.*key : value.*&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DOTALL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exampleRegex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testJson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Alternatively, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pattern.DOTALL&lt;/code&gt; mode can be enabled via the embedded flag expression &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(?s)&lt;/code&gt;. According to the docs ‘[t]he &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt; is a mnemonic for “single-line” mode, which is what this is called in Perl’. This results in:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exampleJsonString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{\n key : value, \n(...)\n}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exampleRegex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;(?s).*key : value.*&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exampleJsonString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exampleRegex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;While both solutions exhibit the same functional behaviour, each has its benefits. The first solution performs better; executing the assertion 1 million times in a test method takes 251 ms for the first against 509 ms for the second. The second solution is closer to what I started with and feels more straightforward to me. Embedded flags can be used on specific parts of the regex, such as within a capture group at the expense of making the regex potentially harder to read; this holds for both compiled and uncompiled regex.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-double-escape&quot;&gt;The Double-Escape&lt;/h2&gt;
+
+&lt;p&gt;I’ll end with a short note on string compilation. Java compiles strings, which mean that escaping characters in regex requires some close attention. Say, I want to match a digit using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\d&lt;/code&gt;, escaping it with a single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&lt;/code&gt; means the Java compiler interprets it as an escape character (depending on language level this can even be considered illegal) instead of interpreting it as part of a regex. So instead, to construct a &lt;strong&gt;regex&lt;/strong&gt; to match a digit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String regex = &quot;\d&quot;;&lt;/code&gt;, we need to construct the literal &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&lt;/code&gt; preceding a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;, as such: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String regex = &quot;\\d&quot;;&lt;/code&gt;. While this is a rather simple example, you can end up with quite a few backslashes and a complaining IDE.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="java" /><category term="regex" /><summary type="html">Last week I set out to write some unit-tests for a Java application. Because the assertions target variable fields in a JSON string, I decided to use regular expressions (regex) to match these fields. In doing this, I learned a few interesting things, which weren’t immediately obvious to me, about how regex are implemented in Java.</summary></entry><entry><title type="html">2019 Review and 2020 Preview</title><link href="http://nelson.science//blog/2020/02/12/2019-review-and-2020-preview.html" rel="alternate" type="text/html" title="2019 Review and 2020 Preview" /><published>2020-02-12T13:00:00+01:00</published><updated>2020-02-12T13:00:00+01:00</updated><id>http://nelson.science//blog/2020/02/12/2019-review-and-2020-preview</id><content type="html" xml:base="http://nelson.science//blog/2020/02/12/2019-review-and-2020-preview.html">&lt;p&gt;Review and preview posts are becoming a yearly tradition on this blog, so here goes! This post is less detailed than my previous ones because looking back at them, they still felt too resolution-y for what I’m trying to achieve with yearly themes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;If you want a starter on year themes, CGP Grey recently released &lt;a href=&quot;https://www.youtube.com/watch?v=NVGuFdX5guE&quot;&gt;a good video&lt;/a&gt; about the topic. The main goal of setting yearly themes is to facilitate positive life change. As such it is one of several tools to keep an eye on general over-arching trends and I don’t want to fall in the trap of setting specific goals that are prone to failure.&lt;/p&gt;
+
+&lt;h2 id=&quot;2019--the-year-of-less&quot;&gt;2019 – The Year of Less&lt;/h2&gt;
+
+&lt;p&gt;I retroactively rebranded 2019 from &lt;em&gt;The Year of Slowing Down (With Focus)&lt;/em&gt; to the &lt;em&gt;The Year of Less&lt;/em&gt;. This new name sums up the idea nicely and it is a lot less wordy. I wanted to focus on myself and how I spend my time and energy, by taking on fewer commitments and reducing distractions. Overall, I would say this year I have moved in the right direction. I keep a better eye on how many commitments I take on and how distractable I am.&lt;/p&gt;
+
+&lt;h2 id=&quot;2020--the-year-of-improvement&quot;&gt;2020 – The Year of Improvement&lt;/h2&gt;
+
+&lt;p&gt;2020 will be the &lt;em&gt;Year of Improvement&lt;/em&gt;. This is a deliberately vague but 🌈 inspirational 🌈 theme. I want to continually remind or ask myself whether what I’m doing improves my life or the lives of other people (around me). Furthermore, this theme will primarily revolve around life improvement, but it can also apply to level up existing skills or acquiring new ones.&lt;/p&gt;
+
+&lt;h3 id=&quot;introducing-seasonal-themes&quot;&gt;Introducing Seasonal Themes&lt;/h3&gt;
+
+&lt;p&gt;In addition to having a yearly theme, I want to introduce seasonal themes to provide more focus for a shorter, predefined, period. I will keep pace with the meteorologically defined start and end times for seasons for the northern hemisphere. So, my seasons’ start dates are defined as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Spring: 1-3&lt;/li&gt;
+  &lt;li&gt;Summer: 1-6&lt;/li&gt;
+  &lt;li&gt;Fall: 1-9&lt;/li&gt;
+  &lt;li&gt;Winter: 1-12&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This means that winter crosses over to the next year. The choice for seasons rather than quarters is deliberate. Following seasons feels more natural since December tends to come with an end-of-year busy period. Instead, I find that most of my focused reflection and looking forward takes place in January. This is probably the main reason why these posts tend to be published in February.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="review" /><summary type="html">Review and preview posts are becoming a yearly tradition on this blog, so here goes! This post is less detailed than my previous ones because looking back at them, they still felt too resolution-y for what I’m trying to achieve with yearly themes.</summary></entry><entry><title type="html">Book Review: Permanent Record</title><link href="http://nelson.science//blog/2020/02/12/permanent-record-review.html" rel="alternate" type="text/html" title="Book Review: Permanent Record" /><published>2020-02-12T12:00:00+01:00</published><updated>2020-02-12T12:00:00+01:00</updated><id>http://nelson.science//blog/2020/02/12/permanent-record-review</id><content type="html" xml:base="http://nelson.science//blog/2020/02/12/permanent-record-review.html">&lt;p&gt;Permanent Record by Edward Snowden.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I don’t usually read memoirs, but as the world becomes more focused on privacy and I become more interested in it, I felt this was a must-read.&lt;/li&gt;
+  &lt;li&gt;This book starts off as a memoir, interspersed with primers on dealing with personal privacy in the modern (digital) world, and turns into a thriller about two-thirds in.
+    &lt;ul&gt;
+      &lt;li&gt;I would call it a true-crime thriller, weren’t it for the fact that the book does not deal with crime.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;notes-per-part&quot;&gt;Notes Per Part&lt;/h2&gt;
+
+&lt;h3 id=&quot;preface&quot;&gt;Preface&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ethical and moral principles that informed Snowden’s decision to blow the whistle.&lt;/li&gt;
+  &lt;li&gt;“What makes a life? More than what we say; more, even, than what we do. A life is also what we love, and what we believe in.”&lt;/li&gt;
+  &lt;li&gt;Early days of the internet.
+    &lt;ul&gt;
+      &lt;li&gt;Creative and cooperative &amp;gt; commercial and competitive. The former is a situation where goodwill and good feelings outweigh any conflict that might happen.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Internet of today is markedly different. This changes has been a conscious and systematic effort of a privileged few. Companies put themselves in the middle of social exchanges and try to turn them into profit.
+    &lt;ul&gt;
+      &lt;li&gt;Beginnings of surveillance capitalism.&lt;/li&gt;
+      &lt;li&gt;In a sense, any (non-commercialised) personal website can be seen as a resistance to the above.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;“The freedom of a country can only be measured by its respect for the rights of its citizens, and it’s my conviction that these rights are in fact limitations of state power that define exactly where and when a government may not infringe into that domain of personal or individual freedoms that during the American Revolution was called “liberty” and during the Internet Revolution is called “privacy”.”
+    &lt;ul&gt;
+      &lt;li&gt;I would extend this definition to also include commercial interests (as opposed to public interest).&lt;/li&gt;
+      &lt;li&gt;“In the span of those [six] years, however, this decline [in the commitment to privacy] has only continued as democracies regress into authoritarian populism. Nowhere has this regression been more apparent than in the relationship of governments to the press.”&lt;/li&gt;
+      &lt;li&gt;Very US centric.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;part-one&quot;&gt;Part One&lt;/h3&gt;
+
+&lt;p&gt;Chapters 1-10.&lt;/p&gt;
+
+&lt;h3 id=&quot;part-two&quot;&gt;Part Two&lt;/h3&gt;
+
+&lt;p&gt;Chapters 11-18.&lt;/p&gt;
+
+&lt;h3 id=&quot;part-three&quot;&gt;Part Three&lt;/h3&gt;
+
+&lt;p&gt;Chapters 19-29.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="review" /><summary type="html">Permanent Record by Edward Snowden.</summary></entry><entry><title type="html">Email Etiquette</title><link href="http://nelson.science//blog/2020/02/02/email-etiquette.html" rel="alternate" type="text/html" title="Email Etiquette" /><published>2020-02-02T13:00:00+01:00</published><updated>2020-02-02T13:00:00+01:00</updated><id>http://nelson.science//blog/2020/02/02/email-etiquette</id><content type="html" xml:base="http://nelson.science//blog/2020/02/02/email-etiquette.html">&lt;p&gt;This post is about email. I didn’t want to write about email, but it is happening anyway. Why? Because I want to be in control of the inputs into my life and email is one of the things that has continued to evade this control for a long time. Recently, I have made a few changes to the way I deal with email and I will continue experimenting as long as I feel out of control. This blog post is about those changes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;bottom-line-up-front&quot;&gt;Bottom-Line Up Front&lt;/h2&gt;
+
+&lt;p&gt;Last year I started using the Bottom-Line Up Front (BLUF) template to write emails at work. I’m definitely &lt;a href=&quot;https://www.emailaudience.com/write-email-with-military-precision/&quot;&gt;not&lt;/a&gt; &lt;a href=&quot;https://lifehacker.com/summarize-long-emails-at-the-top-to-communicate-more-ef-1826571389&quot;&gt;the&lt;/a&gt; &lt;a href=&quot;https://medium.com/@tedbauer2003/bluf-is-how-you-write-emails-now-376f57f663a1&quot;&gt;first&lt;/a&gt; to adopt and write about this template. This post provides an example and a short description of the template.&lt;/p&gt;
+
+&lt;p&gt;The idea of this template is to start with the most important line first and provide background information for the reader below that. Pair this template with an informative subject-line and you have your email. For example:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;(Subject) INFO: example email using the BLUF template&lt;/p&gt;
+
+  &lt;p&gt;I have started using the Bottom-Line Up Front template and this email provides an example of it.&lt;/p&gt;
+
+  &lt;p&gt;Background:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;I have found that this template allows me to write more concise emails.&lt;/li&gt;
+    &lt;li&gt;This template also allows me to spend less time writing emails, so I am spending my time more effectively.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It took a while to get into the pattern. Once I got the hang of it, it took a lot less time to write an email and that’s exactly what I was going for. I haven’t yet started using this template for personal emails, …&lt;/p&gt;
+
+&lt;h3 id=&quot;subject-line&quot;&gt;Subject Line&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;INFO – This means this email is intended for informational purposes only. The recipient isn’t required to respond or perform any action.&lt;/li&gt;
+  &lt;li&gt;DECISION – Means the recipient is required to make a particular decision.&lt;/li&gt;
+  &lt;li&gt;ACTION – Means recipient needs to take an action&lt;/li&gt;
+  &lt;li&gt;SIGN – Means the recipient needs to provide their signature.&lt;/li&gt;
+  &lt;li&gt;REQUEST – Seeks approval or permission by the recipient.&lt;/li&gt;
+  &lt;li&gt;COORDINATE – Means there needs to be coordination with or by the recipient.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;body&quot;&gt;Body&lt;/h3&gt;
+
+&lt;p&gt;The bottom-line should consist of one or two sentence(s) and contain the main purpose of the email. After that, the background information is summed up. This should be kept relatively short as well while containing enough relevant information for the reader. Finally: provide links instead of using attachments.&lt;/p&gt;
+
+&lt;p&gt;This last part tends to be pretty difficult because it’s not always obvious how much context the reader needs; this is true regardless of how you might structure your emails.&lt;/p&gt;
+
+&lt;h2 id=&quot;inbox-management&quot;&gt;Inbox Management&lt;/h2&gt;
+
+&lt;p&gt;Inbox management has always been a struggle, so much so that sometimes I think I could’ve used a course on opening (and dealing with) email promptly. Right now, I feel out of control of my (personal) inbox while I want to be in control. Over the years, I have tried various methods to deal with emails but none of them has worked in the long term.&lt;/p&gt;
+
+&lt;h3 id=&quot;work-inbox&quot;&gt;Work Inbox&lt;/h3&gt;
+
+&lt;p&gt;At work, my inbox isn’t too messy. This is in part because work is relatively contained; I don’t have too much going on that can fill up my inbox. I also haven’t been able to build up much legacy, which helps a lot. Looking at more senior colleagues, they seem to receive a lot more email and use very elaborate directory structures to keep their email in check. Nevertheless, at the start of this year, I decided to change some settings to better deal with my email; this can also function nicely as a pilot for dealing with my personal inbox.&lt;/p&gt;
+
+&lt;p&gt;The first thing I did was to change the way my inbox looks: I removed the preview (reading pane) so an email isn’t opened the moment I select it, and I removed the content preview next to the subject line, so I only see the sender and subject line. This way, my inbox looks a lot cleaner and more focused when I go through it. Additionally, I reset the filters I used to have since these were too broad and I hadn’t put a lot of thought into them. Finally, I tried to unsubscribe from as many automated notifications (PRs, new edits on the wiki, etc.) as possible. For unimportant email and notifications that I could not unsubscribe from, I created new filters that are tailored to specific (types of) emails.&lt;/p&gt;
+
+&lt;p&gt;All these changes already seem to affect me. I am spending a lot less time on email and I open my inbox less frequently. Together, these changes also allow me to focus on the important email and a single email at a time.&lt;/p&gt;
+
+&lt;h3 id=&quot;personal-inbox&quot;&gt;Personal Inbox&lt;/h3&gt;
+
+&lt;p&gt;Now, personal email presents a bigger problem, partially because of the legacy of having multiple email accounts for a long-ass time. Private life is also quite messy, which only makes things worse.&lt;/p&gt;
+
+&lt;p&gt;One of the first changes was to make my email inbox as clean as possible. This is similar to what I did for my work inbox. I set my inbox to a sender and subject line only view. I used to have my inbox divided into two panes: unread at the top and read-but-unarchived at the bottom. Within a few days, I already noticed that these changes are for the better and already made me feel more at ease when dealing with email.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluding-remarks&quot;&gt;Concluding Remarks&lt;/h2&gt;
+
+&lt;p&gt;The changes described so far are surface-level and done to facilitate the necessary behavioural changes required to become in control. These changes encompass unsubscribing from mailing lists, curating what email I do receive, and how I deal with the latter category; all are part of an ongoing process.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="communication" /><summary type="html">This post is about email. I didn’t want to write about email, but it is happening anyway. Why? Because I want to be in control of the inputs into my life and email is one of the things that has continued to evade this control for a long time. Recently, I have made a few changes to the way I deal with email and I will continue experimenting as long as I feel out of control. This blog post is about those changes.</summary></entry><entry><title type="html">Musings on the Erdős Number</title><link href="http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number.html" rel="alternate" type="text/html" title="Musings on the Erdős Number" /><published>2019-12-17T13:00:00+01:00</published><updated>2019-12-17T13:00:00+01:00</updated><id>http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number</id><content type="html" xml:base="http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number.html">&lt;p&gt;I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Erdos_number&quot;&gt;Erdős number&lt;/a&gt; describes the collaborative distance between Paul Erdős and other people, via authorship of mathematical (academic) publications. Paul Erdős himself has an Erdős number of 0 and someone’s Erdős number is defined as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k+1&lt;/code&gt; where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt; is the lowest Erdős number of any co-author. So, Erdős’ co-authors have an Erdős number of 1 and so on. If there is no chain connecting someone to Erdős, their number is undefined or infinite.&lt;/p&gt;
+
+&lt;h2 id=&quot;musings&quot;&gt;Musings&lt;/h2&gt;
+
+&lt;p&gt;Since Paul Erdős passed away, the number of people with an Erdős number 1 is fixed at 511 and the number of living people with this number can only decrease. This also means that the lowest Erdős number one can attain is 2. As long as there are people with an Erdős number of 1 alive, the number of people with an Erdős number of 2 can still increase, but I hypothesise that the rate at which this is happening will slow down as the number of living people with Erdős number 1 (in other words: the chance of collaborating with someone with Erdős number 1) decreases. There will be a tipping point at which the death rate among people with an Erdős number of 2 overtakes the rate at which new collaborators with an Erdős number of 2 and thus, the number of living people with Erdős number 2 will decrease. It would be interesting to see how the distributions of Erdős numbers (held by living people) changes over time and to estimate how the prospects of attaining an Erdős number of 2 changes with it.&lt;/p&gt;
+
+&lt;h2 id=&quot;my-erdős-number&quot;&gt;My Erdős Number&lt;/h2&gt;
+
+&lt;p&gt;Since I have one academic publication, at the time of writing, I wanted to figure out whether my Erdős number would be finite. To do this, I used the &lt;a href=&quot;https://mathscinet.ams.org/mathscinet/freeTools.html?version=2&quot;&gt;collaboration distance&lt;/a&gt; tool on MathSciNet (American Mathematical Society). I started my search with the co-authors of my paper. According to this tool, J.A. Burgoyne has an Erdős number of 6 (see table 1), while Henkjan Honing isn’t in the database. This gives me a finite Erdős number of (at most) 7.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Author&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Coauthored with&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Identifier&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Topic/field&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nelson Mooren&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Music cognition&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ichiro Fujinaga&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR312014&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Computational musicology&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ichiro Fujinaga&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Jorge Calvo-Zaragoza&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR3673874&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Image analysis&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Jorge Calvo-Zaragoza&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Colin de la Higuera&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR3737504&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Finite state automata&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Colin de la Higuera&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Shawe-Taylor&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR2804605&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Machine translation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Shawe-Taylor&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Christopher D. Godsil&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR0897237&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Graph theory&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Christopher D. Godsil&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Paul Erdős&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR0957190&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Graph theory/combinatorics&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;MathSciNet only lists mathematical papers, there are bound to be some gaps in the data. My work, and that of my co-authors, is centred on the field of music cognition. So after this initial search, I figured I could do better. To this end, I looked at some (high-profile) co-authors of both Henkjan Honing and J.A. Burgoyne using Google Scholar, hoping to find different links connecting me to Erdős.&lt;/p&gt;
+
+&lt;p&gt;Looking at J.A. Burgoyne’s co-authors, I found that I have (at least) two paths that give me an Erdős number of 6, namely:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Author&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Coauthored with&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Identifier&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Topic/field&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nelson Mooren&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Music cognition&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lawrence K. Saul&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Various&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lawrence K. Saul&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sam T. Roweis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR2050880&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Unsupervised learning&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sam T. Roweis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Leonard M. Adleman&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR1655281&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Computational biology&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Leonard M. Adleman&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Andrew M. Odlyzko&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR0717715&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Prime factorisation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Andrew M. Odlyzko&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Paul Erdős&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR0535395&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Number theory&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;and:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Author&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Coauthored with&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Identifier&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Topic/field&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nelson Mooren&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Music cognition&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Max Welling&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deep learning&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Max Welling&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John S. Lowengrub&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR3001289&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gaussian modelling&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John S. Lowengrub&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Joseph B. Keller&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR1864363&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Physics&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Joseph B. Keller&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Persi W. Diaconis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR1918049&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mathematical physics&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Persi W. Diaconis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Paul Erdős&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR2126886&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mathematics&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Even better, I found a path that gets my Erdős number down to 5:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Author&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Coauthored with&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Identifier&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Topic/field&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Nelson Mooren&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Music cognition&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;John Ashley Burgoyne&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Remco C. Veltkamp&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Music information retrieval&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Remco C. Veltkamp&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mark T. de Berg&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR2159527&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Algorithm theory&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mark T. de Berg&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Boris Aronov&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR2414676&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Computational geometry&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Boris Aronov&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Paul Erdős&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MR1289067&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Combinatorics&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;In conclusion: my Erdős number is (at most) 5 and four paths connect me to Erdős, with 17 unique authors. All of these paths run via JAB. Aside from JAB, there are no other duplicate authors in the (known) graph connecting me to Erdős.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="academia" /><summary type="html">I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.</summary></entry><entry><title type="html">Python’s Import Intricacies</title><link href="http://nelson.science//blog/2019/06/04/pythons-import-intricacies.html" rel="alternate" type="text/html" title="Python’s Import Intricacies" /><published>2019-06-04T14:00:00+02:00</published><updated>2019-06-04T14:00:00+02:00</updated><id>http://nelson.science//blog/2019/06/04/pythons-import-intricacies</id><content type="html" xml:base="http://nelson.science//blog/2019/06/04/pythons-import-intricacies.html">&lt;p&gt;So far, most of my python projects have consisted of single files, only importing external packages. Now that I’m more focused on test-driven development and developing my skills in a more structured way, I find I’m splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn’t know how to properly, Pythonically, import stuff from another file.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Relative imports in Python weren’t directly obvious to me and looking at the number of questions on StackExchange about this topic, I don’t seem to be the only one. Most of these questions are rather old and the answers often involve changing sys.path, the PYTHONPATH, or using other seemingly clunky methods. I explored a number of different options that seemed to make sense to me as well as suggestions I found on StackExchange. In doing this, I ran into some import intricacies that I’d like to share.&lt;/p&gt;
+
+&lt;p&gt;Suppose, I have the following directory structure and want to test &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;food.py&lt;/code&gt;’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spam_is_food&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test_food.py&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pythonpackage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;├──&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;├──&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;└──&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;food.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;spam_is_food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test_food.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;unittest&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestFood&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_if_spam_is_food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spam_is_food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Even though both modules are in the same package, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sample_function&lt;/code&gt; needs to be imported in order for it to be found by the test case. Below is a list of the suggestions from StackExchange and other things I tried, with my commentary on it.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import food&lt;/code&gt; and calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spam_is_food()&lt;/code&gt; regularly does not work. This feels the most intuitive.&lt;/li&gt;
+  &lt;li&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import food as f&lt;/code&gt; and then calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f.spam_is_food&lt;/code&gt; works (test succeeds), but PyCharm complains that there’s no module &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;food&lt;/code&gt;. This feels a bit clunky, but it can prevent potential naming conflicts between packages.&lt;/li&gt;
+  &lt;li&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from food import spam_is_food&lt;/code&gt; works, but PyCharm complains about unresolved references for both &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;food&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spam_is_food&lt;/code&gt;. Python seems to recognise that the module is there, but I’m not sure why PyCharm is complaining about it. Since both files are in the same package, I would expect this to work like a charm.&lt;/li&gt;
+  &lt;li&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from pythonpackage import food&lt;/code&gt; and calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spam_is_food&lt;/code&gt; does not work, and that’s a shame given that the above option does work.&lt;/li&gt;
+  &lt;li&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from pythonpackage import food as f&lt;/code&gt; and calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f.spam_is_food&lt;/code&gt; works without complaints from PyCharm. This is the most clunky of the five and doesn’t make me happy.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Having tried all this, I decided to refine my search queries. Lo and behold, I finally found &lt;a href=&quot;https://www.python.org/dev/peps/pep-0328/&quot;&gt;pep-328&lt;/a&gt; which contains &lt;a href=&quot;https://www.python.org/dev/peps/pep-0328/#guido-s-decision&quot;&gt;Guido’s Decision&lt;/a&gt; on relative imports, and I think it provides a good middle-ground solution. So, the correct way to import &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spam_is_food&lt;/code&gt; from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;food.py&lt;/code&gt; in this structure is to: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from .food import spam_is_food&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h2&gt;
+
+&lt;p&gt;Here, I’m only scratching the surface of Python’s import system. There’s a lot to learn about modules, packages and namespaces, so I’ve included some further reading that I will explore:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/reference/import.html&quot;&gt;The Import System (Python 3 Docs)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/tutorial/modules.html&quot;&gt;Modules (Python 3 Docs)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://realpython.com/absolute-vs-relative-python-imports/&quot;&gt;Absolute vs. Relative Imports&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://realpython.com/python-modules-packages/&quot;&gt;Python Modules - An Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="python" /><summary type="html">So far, most of my python projects have consisted of single files, only importing external packages. Now that I’m more focused on test-driven development and developing my skills in a more structured way, I find I’m splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn’t know how to properly, Pythonically, import stuff from another file.</summary></entry><entry><title type="html">The /now Page is Back</title><link href="http://nelson.science//blog/2019/04/14/the-now-page-is-back.html" rel="alternate" type="text/html" title="The /now Page is Back" /><published>2019-04-14T14:00:00+02:00</published><updated>2019-04-14T14:00:00+02:00</updated><id>http://nelson.science//blog/2019/04/14/the-now-page-is-back</id><content type="html" xml:base="http://nelson.science//blog/2019/04/14/the-now-page-is-back.html">&lt;p&gt;A few years ago, I had a &lt;a href=&quot;/now&quot;&gt;/now&lt;/a&gt; page on this website, inspired by &lt;a href=&quot;https://sivers.org/nowff&quot;&gt;Derek Sivers&lt;/a&gt; and the movement that followed from him starting his /now page. I decided it could use a comeback. The /now page serves as a reminder to myself what I want to focus on, as well as a public declaration of my priorities.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Like the /now page, doing regular, structured reviews are making a comeback. With these reviews, I want to check whether I’m on track with the goals I set for myself and whether my priorities are still in line with my yearly theme. As I was working on my quarterly review (I prefer seasonal review, really) last week, I was reminded of the concept of a /now page and the fact that I used to have one on this website. The objective of this page was the same then as it is now. However, after a while, I felt that this page didn’t really serve a purpose anymore, as I did not regularly update it, let alone even look at it.&lt;/p&gt;
+
+&lt;p&gt;Now is as good a time as ever to revive this page, as part of &lt;a href=&quot;/blog/2019/02/13/review-2018-preview-2019.html&quot;&gt;the year of focus&lt;/a&gt;. Over the past few months, I realised I missed having one single place like to keep track of my main priorities. Instead, I had a bunch of lists floating around here-and-there. Having multiple of these lists probably contributes to having a sense of feeling lost and not knowing what to do, in a choice overload kind of way.&lt;/p&gt;
+
+&lt;p&gt;All-in-all, I expect that maintaining this page will help me keep a clear sense of my priorities and that it will provide me with some solid ground when I feel lost.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="meta" /><summary type="html">A few years ago, I had a /now page on this website, inspired by Derek Sivers and the movement that followed from him starting his /now page. I decided it could use a comeback. The /now page serves as a reminder to myself what I want to focus on, as well as a public declaration of my priorities.</summary></entry><entry><title type="html">2018 Review and 2019 Preview</title><link href="http://nelson.science//blog/2019/02/13/2018-review-and-2019-preview.html" rel="alternate" type="text/html" title="2018 Review and 2019 Preview" /><published>2019-02-13T13:00:00+01:00</published><updated>2019-02-13T13:00:00+01:00</updated><id>http://nelson.science//blog/2019/02/13/2018-review-and-2019-preview</id><content type="html" xml:base="http://nelson.science//blog/2019/02/13/2018-review-and-2019-preview.html">&lt;p&gt;We’re little over one month into the year, and it’s time to bring this blog back to life. This year, one of my goals is to write more. Specifically, I aim to write approximately one blog post every month, for a total of twelve posts. Because of this goal and the fact that it has been a year since my previous post, I thought it fitting to start off with posting my review of 2018 and preview of 2019.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;2018--the-year-of-me&quot;&gt;2018 – The Year of Me&lt;/h2&gt;
+
+&lt;p&gt;Last year was &lt;em&gt;The Year of Me&lt;/em&gt;, and it was a pretty busy year. Busy, but good. Looking back at the past year, I realised that the theme &lt;em&gt;Year of Me&lt;/em&gt; was a rather ambiguous theme, stemming from the idea that every year should be about me and the theme should act as a guide for how I want to arrange my year/life going forward. I came up (perhaps unconsciously) with some sub-themes to contextualise the overarching theme, but I feel that that did not give enough body to the theme.&lt;/p&gt;
+
+&lt;p&gt;I want to go over the sub-themes quickly. &lt;strong&gt;Hobbies&lt;/strong&gt; did not get the attention it deserved. I finished a sewing project and dedicated some more time to (undistracted) gaming, but that’s about it. &lt;strong&gt;Reading&lt;/strong&gt; only started getting traction towards the end of the year, so that’s something I am going to keep working on. &lt;strong&gt;Health and Exercise&lt;/strong&gt; went really well; I took part in three running events (8k and 10k) and I went to yoga semi-regularly. Towards the end of the year, I started slacking off due to illness and holidays messing up my schedule. In conclusion: the vague theme with sub-themes didn’t work out as I had hoped.&lt;/p&gt;
+
+&lt;h2 id=&quot;2019--the-year-of-slowing-down-with-focus&quot;&gt;2019 – The Year of Slowing Down (With Focus)&lt;/h2&gt;
+
+&lt;p&gt;The theme I chose for 2019 is &lt;em&gt;The Year of Slowing Down (With Focus)&lt;/em&gt;. I came up with this theme because I started feeling ever more rushed over the past few years. This increasing pace is a trend that I think is present in society more generally. There is a tendency to move faster and in shorter iterations, and I feel that that is not working for me, personally.&lt;/p&gt;
+
+&lt;p&gt;Slowing down and focus feel like they are two aspects of the same coin. On the one hand, I want to increase focus by taking on fewer projects, which in turn will cause me to feel less rushed because I don’t have to juggle around as many things. Another aspect is that I want to get better at saying no, to things like social events, projects and other opportunities that might come my way. Together, these habits should have the effect of feeling less hurried and allow me to live my life at a more sustainable pace while having more focus to do things &lt;em&gt;well&lt;/em&gt;.&lt;/p&gt;
+
+&lt;!-- ### Slowing Down --&gt;
+&lt;p&gt;As part of slowing down, I want to spend less time and energy on keeping up with the ever-increasing pace of (social) media. I felt that my social media diet has become unhealthy. Instead of doing things that are important to me in the long term, I found myself caught in a loop between platforms vying for my attention with the lure of immediate gratification. To combat this, I have significantly restricted my access to social media by deleting apps and restricting the amount of time that I can spend on them.&lt;/p&gt;
+
+&lt;p&gt;In the first week, I already noticed a change in my behaviour. I started reading again at home on the couch, before going to bed and in other places, too. I also found that it’s easier to spend time away from the computer and dedicate time to projects and hobbies that I wanted to pursue. It takes time and a continuing effort to find the right tools to effectively block social media. Beside the right tools, I also need to discover how much time I want to spend on social media. This change is a move in the right direction, but I’m not yet where I want to be.&lt;/p&gt;
+
+&lt;!-- ### Focus --&gt;
+&lt;p&gt;Having fewer external distractions vying for my time also helps with changing my focus and increasing my attention span. I often notice how distractable I am, because my attention span is still very fragmented. In part, this is because I haven’t yet found a satisfactory solution to block my access to social media on all my devices. Another part of it is that changes in attention span take a longer time to happen and that there’s more than social media that works to grab and fragment that attention.&lt;/p&gt;
+
+&lt;!-- ## Concluding Remarks --&gt;
+&lt;p&gt;Finally, I want this theme to be relevant in all aspects of my life, both personally and professionally. This year I want to reintroduce the habit to do periodic reviews (be it monthly or seasonally (sounds better than quarterly)) and use that to check in on whether I’m still on track with my theme and moving in the direction where I want to go.&lt;/p&gt;</content><author><name>Nelson Mooren</name></author><category term="blog" /><category term="review" /><summary type="html">We’re little over one month into the year, and it’s time to bring this blog back to life. This year, one of my goals is to write more. Specifically, I aim to write approximately one blog post every month, for a total of twelve posts. Because of this goal and the fact that it has been a year since my previous post, I thought it fitting to start off with posting my review of 2018 and preview of 2019.</summary></entry></feed>

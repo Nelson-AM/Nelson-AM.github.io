@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Playing Around With Bookmarklets</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Playing Around With Bookmarklets">
+<meta name="author" content="Nelson Mooren">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where It has been a few years, but I’m back at a job where Jira is used, so I dug it up again. I also started playing around with bookmarklets to make life easier in other ways.">
+<meta property="og:description" content="Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where It has been a few years, but I’m back at a job where Jira is used, so I dug it up again. I also started playing around with bookmarklets to make life easier in other ways.">
+<link rel="canonical" href="http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets.html">
+<meta property="og:url" content="http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets.html">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2022-06-02T14:00:00+02:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Playing Around With Bookmarklets">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nelson Mooren"},"dateModified":"2022-06-02T14:00:00+02:00","datePublished":"2022-06-02T14:00:00+02:00","description":"Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where It has been a few years, but I’m back at a job where Jira is used, so I dug it up again. I also started playing around with bookmarklets to make life easier in other ways.","headline":"Playing Around With Bookmarklets","mainEntityOfPage":{"@type":"WebPage","@id":"http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets.html"},"url":"http://nelson.science//blog/2022/06/02/playing-around-with-bookmarklets.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+<link type="application/atom+xml" rel="alternate" href="http://nelson.science//feed.xml" title="">
+</head>
+<body>
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/"></a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            <a class="page-link" href="http://nelson.science/">Home</a>
+          
+
+          
+            
+            
+          
+            
+            
+              <a class="page-link" href="/blog/">Blog</a>
+            
+          
+            
+            
+              <a class="page-link" href="/cv/">CV</a>
+            
+          
+            
+            
+          
+            
+            
+              <a class="page-link" href="/now/">Now</a>
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Playing Around With Bookmarklets</h1>
+    <p class="post-meta">
+      <time datetime="2022-06-02T14:00:00+02:00" itemprop="datePublished">
+        
+        2 June 2022
+      </time>
+      
+    </p>
+    <p class="post-meta">
+      
+        Tags:
+        bookmarks, javascript, web
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where  It has been a few years, but I’m back at a job where Jira is used, so I dug it up again. I also started playing around with bookmarklets to make life easier in other ways.</p>
+
+<!-- more -->
+
+<h2 id="the-jira-bookmarklet">The Jira bookmarklet</h2>
+
+<p>The Jira bookmarklet I found is courtesy of Matita. In their <a href="https://matita.github.io/2015/10/23/go-to-jira-bookmarklet/">blog post</a>, Matita explains their reasons for liking and using bookmarklets. What resonates most with me is the autonomy that comes with bookmarklets. If you want to skip directly to the code, it’s on <a href="https://github.com/matita/gotojira-bookmarklet">Github</a>.</p>
+
+<h2 id="quick-confluence-search">Quick Confluence search</h2>
+
+<p>I like Confluence as a wiki, but their search functionality isn’t the best. I’m not talking about the quality and ordering of search results but the fact that the default behaviour is for search to run in a sidebar. This makes it feel unwieldy if you want to interact with multiple pages or need to go back and forth between results. How to make this easier to use?</p>
+
+<p>Confluence has an advanced search that runs as a separate web page, meaning it has a URL I can use. With this, I only need this bookmarklet to do three things: (1) display a pop-up with a prompt, (2) build the URL by combining a base URL with the search text and (3) navigate to the page, which turns into this little bit of code.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">javascript</span><span class="p">:</span> <span class="p">(</span>
+<span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">search_text</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">base_url</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://confluence.&lt;yourcompany&gt;.com/dosearchsite.action?cql=siteSearch%20~%20%22</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">%22&amp;includeArchivedSpaces=false</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">search_text</span><span class="p">)</span> <span class="nx">search_text</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">Write your Confluence search query</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">base_url</span> <span class="o">+</span> <span class="nx">search_text</span> <span class="o">+</span> <span class="nx">params</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<p>To use this bookmarklet, you only need to change the base URL. Then create a new bookmark and paste this code into the URL field.</p>
+
+  </div>
+
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/blog/2022/03/29/TIL-about-email-security-and-authentication.html">« TIL (A Thing or Two) About Email Security and Authentication</a>
+    
+    <span style="float:right;">
+      
+    </span>
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Nelson Mooren
+            
+            </li>
+            
+            <li><a href="mailto:hello@nelson.science">hello@nelson.science</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

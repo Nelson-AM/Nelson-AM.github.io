@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Musings on the Erdős Number</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Musings on the Erdős Number">
+<meta name="author" content="Nelson Mooren">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.">
+<meta property="og:description" content="I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.">
+<link rel="canonical" href="http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number.html">
+<meta property="og:url" content="http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number.html">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-12-17T13:00:00+01:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Musings on the Erdős Number">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nelson Mooren"},"dateModified":"2019-12-17T13:00:00+01:00","datePublished":"2019-12-17T13:00:00+01:00","description":"I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.","headline":"Musings on the Erdős Number","mainEntityOfPage":{"@type":"WebPage","@id":"http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number.html"},"url":"http://nelson.science//blog/2019/12/17/musings-on-the-erd%C5%91s-number.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+<link type="application/atom+xml" rel="alternate" href="http://nelson.science//feed.xml" title="">
+</head>
+<body>
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/"></a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            <a class="page-link" href="http://nelson.science/">Home</a>
+          
+
+          
+            
+            
+          
+            
+            
+              <a class="page-link" href="/blog/">Blog</a>
+            
+          
+            
+            
+              <a class="page-link" href="/cv/">CV</a>
+            
+          
+            
+            
+          
+            
+            
+              <a class="page-link" href="/now/">Now</a>
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Musings on the Erdős Number</h1>
+    <p class="post-meta">
+      <time datetime="2019-12-17T13:00:00+01:00" itemprop="datePublished">
+        
+        17 December 2019
+      </time>
+      
+    </p>
+    <p class="post-meta">
+      
+        Tag:
+        academia
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I came across the Erdős number a long time ago and found it a fun and interesting concept. Just last week I saw someone writing about it on Twitter and I got curious about whether I have a finite Erdős number.</p>
+
+<!-- more -->
+
+<p>The <a href="https://en.wikipedia.org/wiki/Erdos_number">Erdős number</a> describes the collaborative distance between Paul Erdős and other people, via authorship of mathematical (academic) publications. Paul Erdős himself has an Erdős number of 0 and someone’s Erdős number is defined as <code class="language-plaintext highlighter-rouge">k+1</code> where <code class="language-plaintext highlighter-rouge">k</code> is the lowest Erdős number of any co-author. So, Erdős’ co-authors have an Erdős number of 1 and so on. If there is no chain connecting someone to Erdős, their number is undefined or infinite.</p>
+
+<h2 id="musings">Musings</h2>
+
+<p>Since Paul Erdős passed away, the number of people with an Erdős number 1 is fixed at 511 and the number of living people with this number can only decrease. This also means that the lowest Erdős number one can attain is 2. As long as there are people with an Erdős number of 1 alive, the number of people with an Erdős number of 2 can still increase, but I hypothesise that the rate at which this is happening will slow down as the number of living people with Erdős number 1 (in other words: the chance of collaborating with someone with Erdős number 1) decreases. There will be a tipping point at which the death rate among people with an Erdős number of 2 overtakes the rate at which new collaborators with an Erdős number of 2 and thus, the number of living people with Erdős number 2 will decrease. It would be interesting to see how the distributions of Erdős numbers (held by living people) changes over time and to estimate how the prospects of attaining an Erdős number of 2 changes with it.</p>
+
+<h2 id="my-erdős-number">My Erdős Number</h2>
+
+<p>Since I have one academic publication, at the time of writing, I wanted to figure out whether my Erdős number would be finite. To do this, I used the <a href="https://mathscinet.ams.org/mathscinet/freeTools.html?version=2">collaboration distance</a> tool on MathSciNet (American Mathematical Society). I started my search with the co-authors of my paper. According to this tool, J.A. Burgoyne has an Erdős number of 6 (see table 1), while Henkjan Honing isn’t in the database. This gives me a finite Erdős number of (at most) 7.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Author</th>
+      <th style="text-align: left">Coauthored with</th>
+      <th style="text-align: left">Identifier</th>
+      <th style="text-align: left">Topic/field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nelson Mooren</td>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Music cognition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left">Ichiro Fujinaga</td>
+      <td style="text-align: left">MR312014</td>
+      <td style="text-align: left">Computational musicology</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ichiro Fujinaga</td>
+      <td style="text-align: left">Jorge Calvo-Zaragoza</td>
+      <td style="text-align: left">MR3673874</td>
+      <td style="text-align: left">Image analysis</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Jorge Calvo-Zaragoza</td>
+      <td style="text-align: left">Colin de la Higuera</td>
+      <td style="text-align: left">MR3737504</td>
+      <td style="text-align: left">Finite state automata</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Colin de la Higuera</td>
+      <td style="text-align: left">John Shawe-Taylor</td>
+      <td style="text-align: left">MR2804605</td>
+      <td style="text-align: left">Machine translation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">John Shawe-Taylor</td>
+      <td style="text-align: left">Christopher D. Godsil</td>
+      <td style="text-align: left">MR0897237</td>
+      <td style="text-align: left">Graph theory</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Christopher D. Godsil</td>
+      <td style="text-align: left">Paul Erdős</td>
+      <td style="text-align: left">MR0957190</td>
+      <td style="text-align: left">Graph theory/combinatorics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>MathSciNet only lists mathematical papers, there are bound to be some gaps in the data. My work, and that of my co-authors, is centred on the field of music cognition. So after this initial search, I figured I could do better. To this end, I looked at some (high-profile) co-authors of both Henkjan Honing and J.A. Burgoyne using Google Scholar, hoping to find different links connecting me to Erdős.</p>
+
+<p>Looking at J.A. Burgoyne’s co-authors, I found that I have (at least) two paths that give me an Erdős number of 6, namely:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Author</th>
+      <th style="text-align: left">Coauthored with</th>
+      <th style="text-align: left">Identifier</th>
+      <th style="text-align: left">Topic/field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nelson Mooren</td>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Music cognition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left">Lawrence K. Saul</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Various</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Lawrence K. Saul</td>
+      <td style="text-align: left">Sam T. Roweis</td>
+      <td style="text-align: left">MR2050880</td>
+      <td style="text-align: left">Unsupervised learning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Sam T. Roweis</td>
+      <td style="text-align: left">Leonard M. Adleman</td>
+      <td style="text-align: left">MR1655281</td>
+      <td style="text-align: left">Computational biology</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Leonard M. Adleman</td>
+      <td style="text-align: left">Andrew M. Odlyzko</td>
+      <td style="text-align: left">MR0717715</td>
+      <td style="text-align: left">Prime factorisation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Andrew M. Odlyzko</td>
+      <td style="text-align: left">Paul Erdős</td>
+      <td style="text-align: left">MR0535395</td>
+      <td style="text-align: left">Number theory</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>and:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Author</th>
+      <th style="text-align: left">Coauthored with</th>
+      <th style="text-align: left">Identifier</th>
+      <th style="text-align: left">Topic/field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nelson Mooren</td>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Music cognition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left">Max Welling</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Deep learning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Max Welling</td>
+      <td style="text-align: left">John S. Lowengrub</td>
+      <td style="text-align: left">MR3001289</td>
+      <td style="text-align: left">Gaussian modelling</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">John S. Lowengrub</td>
+      <td style="text-align: left">Joseph B. Keller</td>
+      <td style="text-align: left">MR1864363</td>
+      <td style="text-align: left">Physics</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Joseph B. Keller</td>
+      <td style="text-align: left">Persi W. Diaconis</td>
+      <td style="text-align: left">MR1918049</td>
+      <td style="text-align: left">Mathematical physics</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Persi W. Diaconis</td>
+      <td style="text-align: left">Paul Erdős</td>
+      <td style="text-align: left">MR2126886</td>
+      <td style="text-align: left">Mathematics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Even better, I found a path that gets my Erdős number down to 5:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Author</th>
+      <th style="text-align: left">Coauthored with</th>
+      <th style="text-align: left">Identifier</th>
+      <th style="text-align: left">Topic/field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nelson Mooren</td>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Music cognition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">John Ashley Burgoyne</td>
+      <td style="text-align: left">Remco C. Veltkamp</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Music information retrieval</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remco C. Veltkamp</td>
+      <td style="text-align: left">Mark T. de Berg</td>
+      <td style="text-align: left">MR2159527</td>
+      <td style="text-align: left">Algorithm theory</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mark T. de Berg</td>
+      <td style="text-align: left">Boris Aronov</td>
+      <td style="text-align: left">MR2414676</td>
+      <td style="text-align: left">Computational geometry</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Boris Aronov</td>
+      <td style="text-align: left">Paul Erdős</td>
+      <td style="text-align: left">MR1289067</td>
+      <td style="text-align: left">Combinatorics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In conclusion: my Erdős number is (at most) 5 and four paths connect me to Erdős, with 17 unique authors. All of these paths run via JAB. Aside from JAB, there are no other duplicate authors in the (known) graph connecting me to Erdős.</p>
+
+  </div>
+
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/blog/2019/06/04/pythons-import-intricacies.html">« Python's Import Intricacies</a>
+    
+    <span style="float:right;">
+      
+        <a class="next" href="/blog/2020/02/02/email-etiquette.html">Email Etiquette »</a>
+      
+    </span>
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Nelson Mooren
+            
+            </li>
+            
+            <li><a href="mailto:hello@nelson.science">hello@nelson.science</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
