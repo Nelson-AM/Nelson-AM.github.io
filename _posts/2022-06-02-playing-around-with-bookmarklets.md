@@ -28,7 +28,7 @@ function(){
     var params = '%22&includeArchivedSpaces=false';
     if (!search_text) search_text = prompt('Write your Confluence search query');
 
-if (text) {
+if (search_text) {
 var url = base_url + search_text + params;
 window.open(url)
 }
@@ -36,3 +36,7 @@ window.open(url)
 ```
 
 To use this bookmarklet, you only need to change the base URL. Then create a new bookmark and paste this code into the URL field.
+
+---
+
+2024-01-31: Fixed a bug in the Confluence bookmarklet.
