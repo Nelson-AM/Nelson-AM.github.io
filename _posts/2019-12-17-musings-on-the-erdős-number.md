@@ -18,7 +18,7 @@ Since Paul Erdős passed away, the number of people with an Erdős number 1 is f
 
 ## My Erdős Number
 
-Since I have one academic publication, at the time of writing, I wanted to figure out whether my Erdős number would be finite. To do this, I used the [collaboration distance](https://mathscinet.ams.org/mathscinet/freeTools.html?version=2) tool on MathSciNet (American Mathematical Society). I started my search with the co-authors of my paper. According to this tool, J.A. Burgoyne has an Erdős number of 6 (see table 1), while Henkjan Honing isn't in the database. This gives me a finite Erdős number of (at most) 7.
+Since I have one academic publication, at the time of writing, I wanted to figure out whether my Erdős number would be finite. To do this, I used the [collaboration distance](https://mathscinet.ams.org/mathscinet/freetools/collab-dist) tool on MathSciNet (American Mathematical Society). I started my search with the co-authors of my paper. According to this tool, J.A. Burgoyne has an Erdős number of 6 (see table 1), while Henkjan Honing isn't in the database. This gives me a finite Erdős number of (at most) 7.
 
 Author                | Coauthored with       | Identifier | Topic/field
 :---------------------|:----------------------|:-----------|:-------------
