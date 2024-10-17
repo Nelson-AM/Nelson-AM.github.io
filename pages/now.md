@@ -8,11 +8,10 @@ This page serves as a reminder to myself what I want to focus on, as well as a p
 
 ## What I'm Doing Now
 
-*This page has been updated on: 26-07-2022.*
+*This page has been updated on: 17-10-2024.*
 
-My four priorities right now are (in no particular order):
+My priorities right now are (in no particular order):
 
-- Home maintenance
-- Health & fitness
-- Organising meetups and conference with [PyData Amsterdam](https://amsterdam.pydata.org/)
-- Work & professional development
+- Studying to become OCP 17 certified,
+- Gardening & home maintenance,
+- Physical fitness &ndash; mainly running & swimming.
