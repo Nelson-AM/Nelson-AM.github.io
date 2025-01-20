@@ -34,4 +34,5 @@ With the market share of Linux [growing steadily](https://www.tomshardware.com/s
 
 ---
 
-This blog is hosted on GitHub, which is owned by Microsoft.*
+
+*This blog is hosted on GitHub, which is owned by Microsoft.*
