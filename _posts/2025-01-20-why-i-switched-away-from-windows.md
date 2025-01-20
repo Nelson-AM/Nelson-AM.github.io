@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Why I Switched Away From Windows"
-date: 2025-01-20 12:00:00
+date: 2025-01-20 12:00:00 +0100
 categories: blog
 tags: windows linux
 ---
