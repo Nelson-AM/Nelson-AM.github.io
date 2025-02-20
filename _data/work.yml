@@ -1,33 +1,35 @@
 - function: Java Consultant
   company: The.NextGen
   location: Amsterdam
+  tools: Java, Spring Boot, Maven, Gradle, OpenAPI, SQL
   dates:
     start: May 2022
     end: present
 - function: IT Systems and Network Engineer
   company: Mama Cash
   location: Amsterdam
+  tools: Java, Linux, NextCloud, MongoDB, SQL, SalesForce
   dates:
     start: June 2021
     end: March 2022
 - function: Software & Cloud Engineer 
   company: Rabobank
   location: Utrecht
-  tools: Java, Azure Cloud
+  tools: Java, Azure Cloud, Powershell, 
   dates:
     start: May 2020
     end: May 2021
 - function: DevOps Engineer
   company: Rabobank
   location: Utrecht
-  tools: Java, Kafka, Apache Maven, Git, RedHat, Splunk, Ansible
+  tools: Java, Spring Boot, Kafka, Maven, Git, RedHat, Splunk, Ansible
   dates:
     start: May 2018
     end: May 2020
 - function: Software Developer
   company: InTraffic
   location: Nieuwegein
-  tools: C++98, Apache Ant, Git, Google Protocol buffers, TIBCO EMS
+  tools: C++, Apache Ant, Git, Google Protocol buffers, TIBCO EMS
   dates:
     start: February 2017
     end: January 2018
