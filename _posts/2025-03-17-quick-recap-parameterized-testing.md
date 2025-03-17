@@ -170,4 +170,4 @@ For these use cases, the most straightforward solution is to use `@MethodSource(
 
 The first page DuckDuckGo contains only blogs and websites containing guides (like Baeldung and geeksforgeeks), with the JUnit User Guide only showing up on the second page[^1]. Looking at Google, the JUnit 5 User Guide does show up as the second result, which would've been more helpful to start with. In the end, carefully reading the JUnit user guide gives quite clear answers on how to provide a variety of parameters using the `@MethodSource` annotation. May this serve as a reminder to myself that official documentation can be a pretty neat resource.
 
-[^1] For the query "junit 5 parameterized test".
+[^1]: For the query "junit 5 parameterized test".
