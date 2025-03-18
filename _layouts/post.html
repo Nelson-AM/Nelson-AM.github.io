@@ -16,10 +16,13 @@ layout: default
       {% endif %}
     </p>
     <p class="post-meta">
-      {% if page.tags.size > 0 %}
-        Tag{% if page.tags.size > 1 %}s{% endif %}:
-        {{ page.tags | sort | join: ", " }}
-      {% endif %}
+      {%- if page.tags -%}
+      {% for tag in page.tags %}
+      <a href="{{site.baseurl}}/archive.html#{{tag | slugize}}">
+        #{{ tag }}
+      </a>
+      {% endfor %}
+      {%- endif -%}
     </p>
   </header>
 
