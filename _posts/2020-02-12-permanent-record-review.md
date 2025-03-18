@@ -3,7 +3,7 @@ layout: post
 title: "Book Review: Permanent Record"
 date: 2020-02-12 11:00:00
 categories: blog
-tags: review
+tags: [review]
 ---
 
 Permanent Record by Edward Snowden.

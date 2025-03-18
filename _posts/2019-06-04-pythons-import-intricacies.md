@@ -3,7 +3,7 @@ layout: post
 title: "Python's Import Intricacies"
 date: 2019-06-04 12:00:00
 categories: blog
-tags: python
+tags: [python]
 ---
 
 So far, most of my python projects have consisted of single files, only importing external packages. Now that I'm more focused on test-driven development and developing my skills in a more structured way, I find I'm splitting up my logic between multiple files. This requires relative imports within and between the packages and modules I write. Last week, I realised I didn't know how to properly, Pythonically, import stuff from another file.

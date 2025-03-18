@@ -3,7 +3,7 @@ layout: post
 title: "The /now Page is Back"
 date: 2019-04-14 12:00:00
 categories: blog
-tags: meta
+tags: [meta]
 ---
 
 A few years ago, I had a [/now](/now) page on this website, inspired by [Derek Sivers](https://sivers.org/nowff) and the movement that followed from him starting his /now page. I decided it could use a comeback. The /now page serves as a reminder to myself what I want to focus on, as well as a public declaration of my priorities.

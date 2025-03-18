@@ -3,7 +3,7 @@ layout: post
 title: "TIL (A Thing or Two) About Email Security and Authentication"
 date: 2022-03-29 12:00:00
 categories: blog
-tags: email security
+tags: [email, security]
 ---
 
 The main TIL here is that Email is surprisingly easy to spoof. For example, you can use [Emkei's mailer](https://emkei.cz/) to send emails as anyone to anyone. Using an online anonymous mailer like this is a good test of your email authentication and spam filter settings. The more surprising thing, to me at least, is that this is by design, kind of. Time to get into email standards!

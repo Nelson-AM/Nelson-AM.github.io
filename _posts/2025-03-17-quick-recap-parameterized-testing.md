@@ -3,7 +3,7 @@ layout: post
 title: "Quick Recap: Parameterized Testing With Multiple Arguments and Expected Values"
 date: 2025-03-17 12:00:00 +0100
 categories: blog
-tags: [unit testing, java, junit]
+tags: [unit-testing, java, junit]
 ---
 
 It has been a while since I've written parameterised tests from scratch. Since all those tests live in codebases of previous employers, I don't have access to them anymore. So, I had to figure out *how do you do that again?*

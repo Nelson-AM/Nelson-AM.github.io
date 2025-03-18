@@ -3,7 +3,7 @@ layout: post
 title: "Regex in Java: Matching Line Breaks With a Dot"
 date: 2020-05-07 12:00:00
 categories: blog
-tags: java regex
+tags: [java, regex]
 ---
 
 Last week I set out to write some unit-tests for a Java application. Because the assertions target variable fields in a JSON string, I decided to use regular expressions (regex) to match these fields. In doing this, I learned a few interesting things, which weren't immediately obvious to me, about how regex are implemented in Java.

@@ -3,7 +3,7 @@ layout: post
 title: "Playing Around With Bookmarklets"
 date: 2022-06-02 12:00:00
 categories: blog
-tags: bookmarks web javascript
+tags: [bookmarks, web, javascript]
 ---
 
 Years ago, I discovered a bookmarklet that allowed you to fill in a Jira ticket ID, and it would redirect you to that ticket in a separate tab. This was back at a previous job where Jira was used. In the meantime, I have worked at a few places where other tools were used. Now I'm back at a job where Jira is used so I dug it back up. I also started playing around with bookmarklets to make life easier in other ways.

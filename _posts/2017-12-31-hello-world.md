@@ -3,7 +3,7 @@ layout: post
 title: "Hello World!"
 date: 2017-12-31 17:15:00 +0100
 categories: blog
-tags: meta
+tags: [meta]
 ---
 
 For a while now I have been meaning to start a personal blog. Now, it is finally time to say `Hello World`.

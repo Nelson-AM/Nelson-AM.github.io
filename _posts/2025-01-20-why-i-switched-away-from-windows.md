@@ -3,7 +3,7 @@ layout: post
 title: "Why I Switched Away From Windows"
 date: 2025-01-20 12:00:00 +0100
 categories: blog
-tags: windows linux
+tags: [windows, linux]
 ---
 
 Windows has been the daily driver on my home P.C. ever since I started using computers, all the way from 95/98 through to Windows 10. My dad might have had old MS DOS machines, but I don't really have a conscious recollection of using those beside playing the odd 2D-game. This fall, I decided I was done with Windows.
