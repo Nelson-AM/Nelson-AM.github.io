@@ -4,7 +4,7 @@
   tools: Java, Spring Boot, Maven, Gradle, OpenAPI, SQL
   dates:
     start: May 2022
-    end: present
+    end: April 2025
 - function: IT Systems and Network Engineer
   company: Mama Cash
   location: Amsterdam
@@ -15,7 +15,7 @@
 - function: Software & Cloud Engineer 
   company: Rabobank
   location: Utrecht
-  tools: Java, Azure Cloud, Powershell, 
+  tools: Java, Azure Cloud, Powershell
   dates:
     start: May 2020
     end: May 2021
