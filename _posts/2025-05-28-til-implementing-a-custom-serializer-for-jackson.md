@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TIL - Implementing a custom serializer for Jackson"
-date: 2025-05-28 12:00:00 +0100
+date: 2025-05-28 11:00:00 +0100
 categories: blog
 tags: [java, spring, json]
 ---
