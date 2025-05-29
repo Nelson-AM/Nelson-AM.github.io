@@ -9,8 +9,6 @@ I am working on a hobby project to play around with my location data as collecte
 
 <!-- more -->
 
-[^Historical]: I started out using Runkeeper to track my runs, then switched to Strava, until I got my Garmin. So I have some historical data lying around in different formats.
-
 At first, I tried parsing the GPX myself and simply fetched the latitude and longitude from the data. This didn't sit right with me because I didn't feel like creating a whole domain model for stuff that (probably) exists out in the wild. It felt like I would be creating a lot of busywork for myself. So, after looking around on the internet a bit more I found the [jenetics JPX library](https://github.com/jenetics/jpx), which works like a charm[^Historical].
 
 [^Historical]: I started out using Runkeeper to track my runs, then switched to Strava, until I got my Garmin. So I have some historical data lying around in different formats. Working with these different formats, I found out that Runkeeper doesn't create valid GPX files, so I had to parse them using the `lenient` flag.
