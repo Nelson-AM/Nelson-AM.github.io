@@ -5,6 +5,7 @@ date: 2025-05-28 10:00:00 +0100
 categories: blog
 tags: [java, spring, json]
 ---
+
 I am working on a hobby project to play around with my location data as collected through my Garmin watch. For this, I created a Spring (web) project using Java 24, Thymeleaf for templating, Leaflet for data visualisation and JQuery for transforming the data received from Spring. In this process, I ran into some issues with serializing my data and this is how I resolved them.
 
 <!-- more -->
