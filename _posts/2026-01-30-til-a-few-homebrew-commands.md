@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TIL - Some Homebrew Commands"
+title: "TIL: A Few Homebrew Commands"
 date: 2026-01-30 10:00:00 +0100
 categories: blog
 tags: [macos, homebrew]
