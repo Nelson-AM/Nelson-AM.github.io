@@ -8,11 +8,10 @@ This page serves as a reminder to myself what I want to focus on, as well as a p
 
 ## What I'm Doing Now
 
-*This page has been updated on: 20-02-2025.*
+*This page has been updated on: 06-08-2026.*
 
 My priorities right now are (in no particular order):
 
-- Studying to become OCP 17 certified,
+- Building IT infrastructure at EDSN to further the energy transition,
 - Gardening & home maintenance,
-- Maintaining my sourdough starter and baking bread,
-- Physical fitness &ndash; mainly running & climbing.
+- Physical fitness &ndash; mainly cycling & climbing.
